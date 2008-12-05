@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TwitterCounter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-09 22:48+0530\n"
+"POT-Creation-Date: 2008-12-05 16:53+0530\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ajay D'Souza <me@ajaydsouza.com>\n"
 "Language-Team: Ajay D'Souza <me@ajaydsouza.com>\n"
@@ -55,7 +55,7 @@ msgid "Do you want to set options to Default? If you don't have a copy of the us
 msgstr ""
 
 #: admin.inc.php:118
-#: ald-twittercounter.php:82
+#: ald-twittercounter.php:83
 msgid "TwitterCounter"
 msgstr ""
 
@@ -64,7 +64,7 @@ msgid "Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Tw
 msgstr ""
 
 #: ald-twittercounter.php:36
-#: ald-twittercounter.php:45
-msgid "TwitterCounter for @"
+#: ald-twittercounter.php:46
+msgid "TwitterCounter for "
 msgstr ""
 

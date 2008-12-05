@@ -2,6 +2,7 @@
 Tags: TwitterCounter, Twitter, Counter, Statistics, badge, followers
 Contributors: Ajay D'Souza, Boris Veldhuijzen van Zanten
 Donate link: http://ajaydsouza.com/donate/
+Stable Tag: trunk
 
 Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 
@@ -31,5 +32,5 @@ You can select the type of badge you would like to display from within WP-Admin
 
 = Support =
 
-All questions need to be redirected at http://www.ajaydsouza.org/
+All questions need to be redirected at http://ajaydsouza.org/
 No support questions will be entertained in the comments or via email.
