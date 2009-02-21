@@ -89,7 +89,7 @@ function ald_tr()
 		$str .= '"></script>';
 	}
 	
-	$str .= '<br /><small><strong style="font-weight:normal;color:#'.$tc_settings[hr_color].'">Get</strong> <a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/" style="font-weight:normal;color:#'.$tc_settings[a_color].'">TwitterCounter WordPress Plugin</a></small>';
+	$str .= '<br /><small><strong style="color:#'.$tc_settings[hr_color].'">Get</strong> <a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/" style="font-weight:bold;color:#'.$tc_settings[a_color].'">TwitterCounter WordPress Plugin</a></small>';
 	return $str;
 }
 // Add an action called echo_twitter_remote so that it can be called using do_action('echo_twitter_remote');
