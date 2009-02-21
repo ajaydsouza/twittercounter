@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TwitterCounter
-Version:     1.1
+Version:     1.2
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
 Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 Author:      Ajay D'Souza
@@ -16,6 +16,14 @@ function ald_tc_init() {
 add_action('init', 'ald_tc_init');
 
 define('ALD_TC_DIR', dirname(__FILE__));
+// Pre-2.6 compatibility
+if ( !defined('WP_CONTENT_URL') )
+	define( 'WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
+if ( !defined('WP_CONTENT_DIR') )
+	define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
+// Guess the location
+$twittercounter_path = WP_CONTENT_DIR.'/plugins/'.plugin_basename(dirname(__FILE__));
+$twittercounter_url = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__));
 
 /*********************************************************************
 *				Main Function (Do not edit)							*
@@ -49,25 +57,96 @@ function ald_tc()
 	
 	return $str;
 }
-
-function tc_read_options() 
-{
-	if(!is_array(get_option('ald_tc_settings')))
-	{
-		$tc_settings = tc_default_options();
-		update_option('ald_tc_settings', $tc_settings);
-	}
-	else
-	{
-		$tc_settings = get_option('ald_tc_settings');
-	}
-	return $tc_settings;
-}
-
 // Add an action called echo_tc so that it can be called using do_action('echo_tc');
 add_action('echo_tc', 'echo_tc_function');
 function echo_tc_function() {
-		echo ald_tc();
+	echo ald_tc();
+}
+
+/* Function for Twitter Remote */
+function ald_tr()
+{
+	$tc_settings = tc_read_options();
+	
+	if($tc_settings[username]=='')
+	{
+		$str = __('Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username','ald_tc_plugin');
+	}
+	else
+	{
+		$str = '<script type="text/javascript" language="javascript" src="http://twittercounter.com/remote/?username_owner=';
+		$str .= $tc_settings[username];
+		$str .= '&amp;users_id=';
+		$str .= $tc_settings[users_id];
+		$str .= '&amp;width=';
+		$str .= $tc_settings[width];
+		$str .= '&amp;nr_show=';
+		$str .= $tc_settings[nr_show];
+		$str .= '&amp;hr_color=';
+		$str .= $tc_settings[hr_color];
+		$str .= '&amp;a_color=';
+		$str .= $tc_settings[a_color];
+		$str .= '"></script>';
+	}
+	
+	return $str;
+}
+// Add an action called echo_twitter_remote so that it can be called using do_action('echo_twitter_remote');
+add_action('echo_twitter_remote', 'echo_tr_function');
+function echo_tr_function() {
+	echo ald_tr();
+}
+
+// Default Options
+function tc_default_options() {
+	$tc_settings = 	Array (
+						username => '',		// Twitter Username
+						style => '',		// TwitterCounter style
+						users_id => '',		// TwitterCounter style
+						a_color => '709cb2',		// Twitter Remote Color 1
+						hr_color => 'cccccc',		// Twitter Remote Color 2
+						nr_show => '6',		// Twitter Remote Number of Rows
+						width => '180',		// Twitter Remote Width
+						);
+	
+	return $tc_settings;
+}
+
+// Function to read options from the database
+function tc_read_options() {
+
+	$tc_settings_changed = false;
+	
+	$defaults = tc_default_options();
+	
+	$tc_settings = array_map('stripslashes',(array)get_option('ald_tc_settings'));
+	unset($tc_settings[0]); // produced by the (array) casting when there's nothing in the DB
+	
+	foreach ($defaults as $k=>$v) {
+		if (!isset($tc_settings[$k]))
+			$tc_settings[$k] = $v;
+		$tc_settings_changed = true;	
+	}
+	if ($tc_settings_changed == true)
+		update_option('ald_tc_settings', $tc_settings);
+	
+	return $tc_settings;
+
+}
+
+/* This function reads TwitterCounter API */
+function twittercounter_api($username= 'ajaydsouza',$output= 'php',$results= '3') {
+
+	$ch_url = 'http://twittercounter.com/api/?username='.$username.'&output='.$output.'&results='.$results;
+
+	$curl_handle=curl_init();
+	curl_setopt($curl_handle,CURLOPT_URL,$ch_url);
+	curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
+	curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
+	$buffer = curl_exec($curl_handle);
+	curl_close($curl_handle);
+
+	return $buffer;
 }
 
 // Create a WordPress Widget
@@ -79,10 +158,19 @@ function widget_ald_tc($args) {
 	echo $after_widget;
 }
 
-function init_ald_tc(){
-	register_sidebar_widget(__('TwitterCounter'), 'widget_ald_tc');
+function widget_ald_tr($args) {	
+	extract($args); // extracts before_widget,before_title,after_title,after_widget
+	echo $before_widget;
+	echo $before_title.'Twitter Remote'.$after_title;
+	echo ald_tr();
+	echo $after_widget;
 }
- add_action("plugins_loaded", "init_ald_tc");
+
+function init_ald_tc(){
+	register_sidebar_widget('TwitterCounter', 'widget_ald_tc');
+	register_sidebar_widget('Twitter Remote', 'widget_ald_tr');
+}
+add_action("plugins_loaded", "init_ald_tc");
  
 // This function adds an Options page in WP Admin
 if (is_admin() || strstr($_SERVER['PHP_SELF'], 'wp-admin/')) {

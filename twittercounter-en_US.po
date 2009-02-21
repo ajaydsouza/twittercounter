@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TwitterCounter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-05 16:53+0530\n"
+"POT-Creation-Date: 2009-02-21 14:12+0530\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ajay D'Souza <me@ajaydsouza.com>\n"
 "Language-Team: Ajay D'Souza <me@ajaydsouza.com>\n"
@@ -14,57 +14,117 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin.inc.php:24
+#: admin.inc.php:34
 msgid "Options saved successfully."
 msgstr ""
 
-#: admin.inc.php:34
+#: admin.inc.php:44
 msgid "Options set to Default."
 msgstr ""
 
-#: admin.inc.php:45
+#: admin.inc.php:56
 msgid "Support the Development"
 msgstr ""
 
-#: admin.inc.php:49
+#: admin.inc.php:60
 msgid "If you find my"
 msgstr ""
 
-#: admin.inc.php:51
+#: admin.inc.php:62
 msgid "useful, please do"
 msgstr ""
 
-#: admin.inc.php:53
+#: admin.inc.php:64
 msgid "drop in your contribution"
 msgstr ""
 
-#: admin.inc.php:55
+#: admin.inc.php:66
 msgid "Some reasons why you should."
 msgstr ""
 
-#: admin.inc.php:63
+#: admin.inc.php:74
 msgid "Options:"
 msgstr ""
 
-#: admin.inc.php:69
+#: admin.inc.php:79
 msgid "Twitter username:"
 msgstr ""
 
-#: admin.inc.php:93
+#: admin.inc.php:83
+msgid "Select Style of TwitterCounter badge"
+msgstr ""
+
+#: admin.inc.php:102
+msgid "Preview"
+msgstr ""
+
+#: admin.inc.php:103
+msgid "Select options for Twitter Remote"
+msgstr ""
+
+#: admin.inc.php:104
+msgid "User ID"
+msgstr ""
+
+#: admin.inc.php:105
+msgid "Generated automatically from your username. This is the value of <code>users_id</code> in script code generated "
+msgstr ""
+
+#: admin.inc.php:107
+msgid "Color 1"
+msgstr ""
+
+#: admin.inc.php:107
+msgid "used for usernames and hyperlinks"
+msgstr ""
+
+#: admin.inc.php:108
+msgid "Color 2"
+msgstr ""
+
+#: admin.inc.php:108
+msgid "used for horizontal rulers and text"
+msgstr ""
+
+#: admin.inc.php:109
+msgid "Number of rows"
+msgstr ""
+
+#: admin.inc.php:109
+msgid "How many Twitter users do you want to show? Min 6"
+msgstr ""
+
+#: admin.inc.php:110
+msgid "Width"
+msgstr ""
+
+#: admin.inc.php:110
+msgid "How wide should the widget be? Min 180 pixels"
+msgstr ""
+
+#: admin.inc.php:111
+msgid "Twitter Remote tends to cache your remote. If you don't see your remote changing color, please wait for a few minutes. "
+msgstr ""
+
+#: admin.inc.php:112
+msgid "Try forcing reload"
+msgstr ""
+
+#: admin.inc.php:116
 msgid "Do you want to set options to Default? If you don't have a copy of the username, please hit Cancel and copy it first."
 msgstr ""
 
-#: admin.inc.php:118
-#: ald-twittercounter.php:83
+#: admin.inc.php:140
 msgid "TwitterCounter"
 msgstr ""
 
-#: ald-twittercounter.php:29
+#: ald-twittercounter.php:37
+#: ald-twittercounter.php:73
 msgid "Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username"
 msgstr ""
 
-#: ald-twittercounter.php:36
-#: ald-twittercounter.php:46
+#: ald-twittercounter.php:44
+#: ald-twittercounter.php:54
 msgid "TwitterCounter for "
 msgstr ""
 

@@ -2,25 +2,35 @@
 /**********************************************************************
 *					Admin Page							*
 *********************************************************************/
-function tc_default_options() {
-	$tc_settings = 	Array (
-						username => '',		// Twitter Username
-						style => '',		// TwitterCounter username
-						);
-	
-	return $tc_settings;
-}
+// Pre-2.6 compatibility
+if ( !defined('WP_CONTENT_URL') )
+	define( 'WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
+if ( !defined('WP_CONTENT_DIR') )
+	define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
+// Guess the location
+$twittercounter_path = WP_CONTENT_DIR.'/plugins/'.plugin_basename(dirname(__FILE__));
+$twittercounter_url = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__));
 
 function tc_options() {
 	
+	global $twittercounter_url;
+
 	$tc_settings = tc_read_options();
 
 	if($_POST['tc_save']){
 		$tc_settings[username] = $_POST['username'];
 		$tc_settings[style] = (($_POST['style']!='blank') ? $_POST['style'] : '');
-				
-		update_option('ald_tc_settings', $tc_settings);
+		$tc_settings[a_color] = $_POST['a_color'];
+		$tc_settings[hr_color] = $_POST['hr_color'];
+		$tc_settings[nr_show] = $_POST['nr_show'];
+		$tc_settings[width] = $_POST['width'];
+
+		$tc_api = unserialize(twittercounter_api($tc_settings[username]));
+		$tc_settings[users_id] = $tc_api[user_id];
 		
+		update_option('ald_tc_settings', $tc_settings);
+
+	
 		$str = '<div id="message" class="updated fade"><p>'. __('Options saved successfully.','ald_tc_plugin') .'</p></div>';
 		echo $str;
 	}
@@ -38,6 +48,7 @@ function tc_options() {
 
 <div class="wrap">
   <h2> TwitterCounter </h2>
+
   <div style="border: #ccc 1px solid; padding: 10px">
     <fieldset class="options">
     <legend>
@@ -63,13 +74,13 @@ function tc_options() {
       <?php _e('Options:','ald_tc_plugin'); ?>
     </h3>
     </legend>
-	<p>Style: "<?php echo $tc_settings[style]; ?>"</p>
     <p>
       <label for="username"><strong>
       <?php _e('Twitter username:','ald_tc_plugin'); ?>
       </strong></label>
       <input type="text" name="username" id="username" value="<?php echo $tc_settings[username]; ?>" size="40" maxlength="32" />
     </p>
+	<h4><?php _e('Select Style of TwitterCounter badge','ald_tc_plugin'); ?></h4>
     <p>
       <label>
       <input type="radio" name="style" value="blank" id="style_0" <?php if ($tc_settings[style]=='') echo 'checked="checked"' ?> />
@@ -88,7 +99,19 @@ function tc_options() {
       <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>&amp;style=blue" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
       <br />
     </p>
-    <p>
+	<div style="float:left;margin-right: 30px"><h4><?php _e('Preview','ald_tc_plugin'); ?>:</h4> <br /><?php do_action('echo_twitter_remote'); ?></div>
+	<h4><?php _e('Select options for Twitter Remote','ald_tc_plugin'); ?></h4>
+	<p><?php _e('User ID','ald_tc_plugin'); ?>: <input name="users_id" type="text" size="6" value="<?php echo $tc_settings[users_id]; ?>" readonly="readonly" />
+		<br /><small><?php _e('Generated automatically from your username. This is the value of <code>users_id</code> in script code generated ','ald_tc_plugin'); ?>
+		<a href="http://twittercounter.com/pages/remote?username_owner=<?php echo $tc_settings[username]; ?>" target="_blank">here</a></small></p>
+	<p><?php _e('Color 1','ald_tc_plugin'); ?>: #<input class="color" name="a_color" type="text" value="<?php echo $tc_settings[a_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for usernames and hyperlinks','ald_tc_plugin'); ?></small></p>
+	<p><?php _e('Color 2','ald_tc_plugin'); ?>: #<input class="color" name="hr_color" type="text" value="<?php echo $tc_settings[hr_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for horizontal rulers and text','ald_tc_plugin'); ?></small></p>
+	<p><?php _e('Number of rows','ald_tc_plugin'); ?>: <input name="nr_show" type="text" value="<?php echo $tc_settings[nr_show]; ?>" size="6" maxlength="2" /> <small><?php _e('How many Twitter users do you want to show? Min 6','ald_tc_plugin'); ?></small></p>
+	<p><?php _e('Width','ald_tc_plugin'); ?>: <input name="width" type="text" value="<?php echo $tc_settings[width]; ?>" size="6" maxlength="3" />px <small><?php _e('How wide should the widget be? Min 180 pixels','ald_tc_plugin'); ?></small></p>
+	<p><?php _e('Twitter Remote tends to cache your remote. If you don\'t see your remote changing color, please wait for a few minutes. ','ald_tc_plugin'); ?>
+		<a href="http://twittercounter.com/pages/remote?username_owner=<?php echo $tc_settings[username]; ?>&amp;a_color=<?php echo $tc_settings[a_color]; ?>&amp;hr_color=<?php echo $tc_settings[hr_color]; ?>&amp;nr_show=<?php echo $tc_settings[nr_show]; ?>&amp;width=<?php echo $tc_settings[width]; ?>" target="_blank"><?php _e('Try forcing reload','ald_tc_plugin'); ?></a></p>
+    </p>
+	<p>
       <input type="submit" name="tc_save" id="tc_save" value="Save Options" style="border:#00CC00 1px solid" />
       <input name="tc_default" type="submit" id="tc_default" value="Default Options" style="border:#FF0000 1px solid" onclick="if (!confirm('<?php _e('Do you want to set options to Default? If you don\'t have a copy of the username, please hit Cancel and copy it first.','ald_tc_plugin'); ?>')) return false;" />
     </p>
@@ -99,7 +122,6 @@ function tc_options() {
 
 }
 
-
 function tc_adminmenu() {
 	if (function_exists('current_user_can')) {
 		// In WordPress 2.x
@@ -108,8 +130,8 @@ function tc_adminmenu() {
 		}
 	} else {
 		// In WordPress 1.x
-		global $user_ID;
-		if (user_can_edit_user($user_ID, 0)) {
+		global $users_id;
+		if (user_can_edit_user($users_id, 0)) {
 			$tc_is_admin = true;
 		}
 	}
@@ -118,8 +140,14 @@ function tc_adminmenu() {
 		add_options_page(__("TwitterCounter"), __("TwitterCounter"), 9, 'tc_options', 'tc_options');
 		}
 }
-
-
 add_action('admin_menu', 'tc_adminmenu');
+
+function tc_adminhead() {
+	global $twittercounter_url;
+
+?>
+<script type="text/javascript" src="<?php echo $twittercounter_url ?>/jscolor/jscolor.js"></script>
+<?php }
+add_action('admin_head', 'tc_adminhead');
 
 ?>
