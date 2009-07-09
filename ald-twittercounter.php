@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TwitterCounter
-Version:     1.2
+Version:     1.3
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
 Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 Author:      Ajay D'Souza
@@ -38,21 +38,14 @@ function ald_tc()
 	}
 	else
 	{
-		$str = '<a href="http://twittercounter.com/?username=';
-		$str .= $tc_settings[username];
-		$str .= '" title="';
-		$str .= __('TwitterCounter for ','ald_tc_plugin');
-		$str .= $tc_settings[username];
-		$str .= '"><img src="http://twittercounter.com/counter/?username=';
+		$str = '<script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=';
 		$str .= $tc_settings[username];
 		if($tc_settings[style]!='')
 		{
 			$str .= '&amp;style=';
 			$str .= $tc_settings[style];
 		}
-		$str .= '" width="88" height="26" style="border:none;" alt="';
-		$str .= __('TwitterCounter for ','ald_tc_plugin');
-		$str .= '" /></a>';
+		$str .= '"></script>';
 	}
 	
 	return $str;
@@ -155,7 +148,7 @@ function widget_ald_tc($args) {
 	extract($args); // extracts before_widget,before_title,after_title,after_widget
 	echo $before_widget;
 	echo $before_title.'TwitterCounter'.$after_title;
-	echo ald_tc();
+	echo '<div style="text-align:center">'.ald_tc().'</div>';
 	echo $after_widget;
 }
 

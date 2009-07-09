@@ -84,19 +84,23 @@ function tc_options() {
     <p>
       <label>
       <input type="radio" name="style" value="blank" id="style_0" <?php if ($tc_settings[style]=='') echo 'checked="checked"' ?> />
-      <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
+      <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
       <br />
       <label>
       <input type="radio" name="style" value="black" id="style_1" <?php if ($tc_settings[style]=='black') echo 'checked="checked"' ?> />
-      <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>&amp;style=black" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
+      <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=black" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
       <br />
       <label>
       <input type="radio" name="style" value="white" id="style_2" <?php if ($tc_settings[style]=='white') echo 'checked="checked"' ?> />
-      <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>&amp;style=white" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
+      <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=white" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
       <br />
       <label>
       <input type="radio" name="style" value="blue" id="style_3" <?php if ($tc_settings[style]=='blue') echo 'checked="checked"' ?> />
-      <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>&amp;style=blue" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'thecounter';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
+      <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=blue" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
+      <br />
+      <label>
+      <input type="radio" name="style" value="bird" id="style_4" <?php if ($tc_settings[style]=='bird') echo 'checked="checked"' ?> />
+      <script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=bird"></script></label>
       <br />
     </p>
 	<div style="float:left;margin-right: 30px"><h4><?php _e('Preview','ald_tc_plugin'); ?>:</h4> <br /><?php do_action('echo_twitter_remote'); ?></div>
@@ -137,8 +141,9 @@ function tc_adminmenu() {
 	}
 
 	if ((function_exists('add_options_page'))&&($tc_is_admin)) {
-		add_options_page(__("TwitterCounter"), __("TwitterCounter"), 9, 'tc_options', 'tc_options');
-		}
+		$plugin_page = add_options_page(__("TwitterCounter"), __("TwitterCounter"), 9, 'tc_options', 'tc_options');
+		add_action( 'admin_head-'. $plugin_page, 'tc_adminhead' );
+	}
 }
 add_action('admin_menu', 'tc_adminmenu');
 
@@ -148,6 +153,5 @@ function tc_adminhead() {
 ?>
 <script type="text/javascript" src="<?php echo $twittercounter_url ?>/jscolor/jscolor.js"></script>
 <?php }
-add_action('admin_head', 'tc_adminhead');
 
 ?>

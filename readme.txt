@@ -4,7 +4,7 @@ Contributors: Ajay D'Souza, Boris Veldhuijzen van Zanten
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
 Requires at least: 2.5
-Tested up to: 2.7
+Tested up to: 2.8
 
 Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 
@@ -42,8 +42,17 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 == Changelog ==
 
-* 1.1 - Twitter Remote added. All options can be customized from with WP-Admin
-* 1.0 - Release
+= 1.3 =
+* Incorporated the new javascript based code. Added the new Big Bird style for the twittercounter button
+
+= 1.2 =
+* Integrated Twitter Remote
+
+= 1.1 =
+* Twitter Remote added. All options can be customized from with WP-Admin
+
+= 1.0 =
+* Release
 
 
 == Frequently Asked Questions ==
