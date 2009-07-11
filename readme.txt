@@ -42,6 +42,9 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 == Changelog ==
 
+= 1.3.1 =
+* Internationalization fix
+
 = 1.3 =
 * Incorporated the new javascript based code. Added the new Big Bird style for the twittercounter button
 

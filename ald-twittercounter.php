@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TwitterCounter
-Version:     1.3
+Version:     1.3.1
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
 Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 Author:      Ajay D'Souza
@@ -10,12 +10,19 @@ Author URI:  http://ajaydsouza.com/
 
 if (!defined('ABSPATH')) die("Aren't you supposed to come here via WP-Admin?");
 
+define('ALD_TC_DIR', dirname(__FILE__));
+define('TC_LOCAL_NAME', 'ald-twittercounter');
+
 function ald_tc_init() {
-     load_plugin_textdomain('myald_tc_plugin', PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)));
+	//* Begin Localization Code */
+	$tc_localizationName = TC_LOCAL_NAME;
+	$tc_comments_locale = get_locale();
+	$tc_comments_mofile = ALD_tc_DIR . "/languages/" . $tc_localizationName . "-". $tc_comments_locale.".mo";
+	load_textdomain($tc_localizationName, $tc_comments_mofile);
+	//* End Localization Code */
 }
 add_action('init', 'ald_tc_init');
 
-define('ALD_TC_DIR', dirname(__FILE__));
 // Pre-2.6 compatibility
 if ( !defined('WP_CONTENT_URL') )
 	define( 'WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
@@ -34,7 +41,7 @@ function ald_tc()
 	
 	if($tc_settings[username]=='')
 	{
-		$str = __('Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username','ald_tc_plugin');
+		$str = __('Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username',TC_LOCAL_NAME);
 	}
 	else
 	{
@@ -63,7 +70,7 @@ function ald_tr()
 	
 	if($tc_settings[username]=='')
 	{
-		$str = __('Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username','ald_tc_plugin');
+		$str = __('Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username',TC_LOCAL_NAME);
 	}
 	else
 	{

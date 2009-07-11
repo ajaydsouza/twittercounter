@@ -2,6 +2,10 @@
 /**********************************************************************
 *					Admin Page							*
 *********************************************************************/
+if (!defined('ABSPATH')) die("Aren't you supposed to come here via WP-Admin?");
+
+if (!defined('TC_LOCAL_NAME')) define('TC_LOCAL_NAME', 'ald-twittercounter');
+
 // Pre-2.6 compatibility
 if ( !defined('WP_CONTENT_URL') )
 	define( 'WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
@@ -31,7 +35,7 @@ function tc_options() {
 		update_option('ald_tc_settings', $tc_settings);
 
 	
-		$str = '<div id="message" class="updated fade"><p>'. __('Options saved successfully.','ald_tc_plugin') .'</p></div>';
+		$str = '<div id="message" class="updated fade"><p>'. __('Options saved successfully.',TC_LOCAL_NAME) .'</p></div>';
 		echo $str;
 	}
 	
@@ -41,7 +45,7 @@ function tc_options() {
 		$tc_settings = tc_default_options();
 		update_option('ald_tc_settings', $tc_settings);
 		
-		$str = '<div id="message" class="updated fade"><p>'. __('Options set to Default.','ald_tc_plugin') .'</p></div>';
+		$str = '<div id="message" class="updated fade"><p>'. __('Options set to Default.',TC_LOCAL_NAME) .'</p></div>';
 		echo $str;
 	}
 ?>
@@ -53,17 +57,17 @@ function tc_options() {
     <fieldset class="options">
     <legend>
     <h3>
-      <?php _e('Support the Development','ald_tc_plugin'); ?>
+      <?php _e('Support the Development',TC_LOCAL_NAME); ?>
     </h3>
     </legend>
     <p>
-      <?php _e('If you find my','ald_tc_plugin'); ?>
+      <?php _e('If you find my',TC_LOCAL_NAME); ?>
       <a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/">TwitterCounter</a>
-      <?php _e('useful, please do','ald_tc_plugin'); ?>
+      <?php _e('useful, please do',TC_LOCAL_NAME); ?>
       <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=donate@ajaydsouza.com&amp;item_name=TwitterCounter%20(From%20WP-Admin)&amp;no_shipping=1&amp;return=http://ajaydsouza.com/wordpress/plugins/twittercounter/&amp;cancel_return=http://ajaydsouza.com/wordpress/plugins/twittercounter/&amp;cn=Note%20to%20Author&amp;tax=0&amp;currency_code=USD&amp;bn=PP-DonationsBF&amp;charset=UTF-8" title="Donate via PayPal">
-      <?php _e('drop in your contribution','ald_tc_plugin'); ?>
+      <?php _e('drop in your contribution',TC_LOCAL_NAME); ?>
       </a>. (<a href="http://ajaydsouza.com/donate/">
-      <?php _e('Some reasons why you should.','ald_tc_plugin'); ?>
+      <?php _e('Some reasons why you should.',TC_LOCAL_NAME); ?>
       </a>)</p>
     </fieldset>
   </div>
@@ -71,16 +75,16 @@ function tc_options() {
     <fieldset class="options">
     <legend>
     <h3>
-      <?php _e('Options:','ald_tc_plugin'); ?>
+      <?php _e('Options:',TC_LOCAL_NAME); ?>
     </h3>
     </legend>
     <p>
       <label for="username"><strong>
-      <?php _e('Twitter username:','ald_tc_plugin'); ?>
+      <?php _e('Twitter username:',TC_LOCAL_NAME); ?>
       </strong></label>
       <input type="text" name="username" id="username" value="<?php echo $tc_settings[username]; ?>" size="40" maxlength="32" />
     </p>
-	<h4><?php _e('Select Style of TwitterCounter badge','ald_tc_plugin'); ?></h4>
+	<h4><?php _e('Select Style of TwitterCounter badge',TC_LOCAL_NAME); ?></h4>
     <p>
       <label>
       <input type="radio" name="style" value="blank" id="style_0" <?php if ($tc_settings[style]=='') echo 'checked="checked"' ?> />
@@ -103,21 +107,21 @@ function tc_options() {
       <script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=bird"></script></label>
       <br />
     </p>
-	<div style="float:left;margin-right: 30px"><h4><?php _e('Preview','ald_tc_plugin'); ?>:</h4> <br /><?php do_action('echo_twitter_remote'); ?></div>
-	<h4><?php _e('Select options for Twitter Remote','ald_tc_plugin'); ?></h4>
-	<p><?php _e('User ID','ald_tc_plugin'); ?>: <input name="users_id" type="text" size="6" value="<?php echo $tc_settings[users_id]; ?>" readonly="readonly" />
-		<br /><small><?php _e('Generated automatically from your username. This is the value of <code>users_id</code> in script code generated ','ald_tc_plugin'); ?>
+	<div style="float:left;margin-right: 30px"><h4><?php _e('Preview',TC_LOCAL_NAME); ?>:</h4> <br /><?php do_action('echo_twitter_remote'); ?></div>
+	<h4><?php _e('Select options for Twitter Remote',TC_LOCAL_NAME); ?></h4>
+	<p><?php _e('User ID',TC_LOCAL_NAME); ?>: <input name="users_id" type="text" size="6" value="<?php echo $tc_settings[users_id]; ?>" readonly="readonly" />
+		<br /><small><?php _e('Generated automatically from your username. This is the value of <code>users_id</code> in script code generated ',TC_LOCAL_NAME); ?>
 		<a href="http://twittercounter.com/pages/remote?username_owner=<?php echo $tc_settings[username]; ?>" target="_blank">here</a></small></p>
-	<p><?php _e('Color 1','ald_tc_plugin'); ?>: #<input class="color" name="a_color" type="text" value="<?php echo $tc_settings[a_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for usernames and hyperlinks','ald_tc_plugin'); ?></small></p>
-	<p><?php _e('Color 2','ald_tc_plugin'); ?>: #<input class="color" name="hr_color" type="text" value="<?php echo $tc_settings[hr_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for horizontal rulers and text','ald_tc_plugin'); ?></small></p>
-	<p><?php _e('Number of rows','ald_tc_plugin'); ?>: <input name="nr_show" type="text" value="<?php echo $tc_settings[nr_show]; ?>" size="6" maxlength="2" /> <small><?php _e('How many Twitter users do you want to show? Min 6','ald_tc_plugin'); ?></small></p>
-	<p><?php _e('Width','ald_tc_plugin'); ?>: <input name="width" type="text" value="<?php echo $tc_settings[width]; ?>" size="6" maxlength="3" />px <small><?php _e('How wide should the widget be? Min 180 pixels','ald_tc_plugin'); ?></small></p>
-	<p><?php _e('Twitter Remote tends to cache your remote. If you don\'t see your remote changing color, please wait for a few minutes. ','ald_tc_plugin'); ?>
-		<a href="http://twittercounter.com/pages/remote?username_owner=<?php echo $tc_settings[username]; ?>&amp;a_color=<?php echo $tc_settings[a_color]; ?>&amp;hr_color=<?php echo $tc_settings[hr_color]; ?>&amp;nr_show=<?php echo $tc_settings[nr_show]; ?>&amp;width=<?php echo $tc_settings[width]; ?>" target="_blank"><?php _e('Try forcing reload','ald_tc_plugin'); ?></a></p>
+	<p><?php _e('Color 1',TC_LOCAL_NAME); ?>: #<input class="color" name="a_color" type="text" value="<?php echo $tc_settings[a_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for usernames and hyperlinks',TC_LOCAL_NAME); ?></small></p>
+	<p><?php _e('Color 2',TC_LOCAL_NAME); ?>: #<input class="color" name="hr_color" type="text" value="<?php echo $tc_settings[hr_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for horizontal rulers and text',TC_LOCAL_NAME); ?></small></p>
+	<p><?php _e('Number of rows',TC_LOCAL_NAME); ?>: <input name="nr_show" type="text" value="<?php echo $tc_settings[nr_show]; ?>" size="6" maxlength="2" /> <small><?php _e('How many Twitter users do you want to show? Min 6',TC_LOCAL_NAME); ?></small></p>
+	<p><?php _e('Width',TC_LOCAL_NAME); ?>: <input name="width" type="text" value="<?php echo $tc_settings[width]; ?>" size="6" maxlength="3" />px <small><?php _e('How wide should the widget be? Min 180 pixels',TC_LOCAL_NAME); ?></small></p>
+	<p><?php _e('Twitter Remote tends to cache your remote. If you don\'t see your remote changing color, please wait for a few minutes. ',TC_LOCAL_NAME); ?>
+		<a href="http://twittercounter.com/pages/remote?username_owner=<?php echo $tc_settings[username]; ?>&amp;a_color=<?php echo $tc_settings[a_color]; ?>&amp;hr_color=<?php echo $tc_settings[hr_color]; ?>&amp;nr_show=<?php echo $tc_settings[nr_show]; ?>&amp;width=<?php echo $tc_settings[width]; ?>" target="_blank"><?php _e('Try forcing reload',TC_LOCAL_NAME); ?></a></p>
     </p>
 	<p>
       <input type="submit" name="tc_save" id="tc_save" value="Save Options" style="border:#00CC00 1px solid" />
-      <input name="tc_default" type="submit" id="tc_default" value="Default Options" style="border:#FF0000 1px solid" onclick="if (!confirm('<?php _e('Do you want to set options to Default? If you don\'t have a copy of the username, please hit Cancel and copy it first.','ald_tc_plugin'); ?>')) return false;" />
+      <input name="tc_default" type="submit" id="tc_default" value="Default Options" style="border:#FF0000 1px solid" onclick="if (!confirm('<?php _e('Do you want to set options to Default? If you don\'t have a copy of the username, please hit Cancel and copy it first.',TC_LOCAL_NAME); ?>')) return false;" />
     </p>
     </fieldset>
   </form>
