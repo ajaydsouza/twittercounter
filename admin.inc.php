@@ -4,7 +4,7 @@
 *********************************************************************/
 if (!defined('ABSPATH')) die("Aren't you supposed to come here via WP-Admin?");
 
-if (!defined('TC_LOCAL_NAME')) define('TC_LOCAL_NAME', 'ald-twittercounter');
+if (!defined('TC_LOCAL_NAME')) define('TC_LOCAL_NAME', 'twittercounter');
 
 // Pre-2.6 compatibility
 if ( !defined('WP_CONTENT_URL') )
