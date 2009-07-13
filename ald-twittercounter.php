@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TwitterCounter
-Version:     1.3.2
+Version:     1.3.3
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
 Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 Author:      Ajay D'Souza
@@ -17,7 +17,7 @@ function ald_tc_init() {
 	//* Begin Localization Code */
 	$tc_localizationName = TC_LOCAL_NAME;
 	$tc_comments_locale = get_locale();
-	$tc_comments_mofile = ALD_tc_DIR . "/languages/" . $tc_localizationName . "-". $tc_comments_locale.".mo";
+	$tc_comments_mofile = ALD_TC_DIR . "/languages/" . $tc_localizationName . "-". $tc_comments_locale.".mo";
 	load_textdomain($tc_localizationName, $tc_comments_mofile);
 	//* End Localization Code */
 }
