@@ -42,7 +42,7 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 == Changelog ==
 
-= 1.3.1 =
+= 1.3.3 =
 * Internationalization fix
 
 = 1.3 =
