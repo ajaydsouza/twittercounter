@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TwitterCounter Wordpress Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-07-12 11:06+0530\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Bjoern Buerstinghaus <bjoern@buerstinghaus.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+
+#: admin.inc.php:38
+msgid "Options saved successfully."
+msgstr "Änderungen erfolgreich gespeichert."
+
+#: admin.inc.php:48
+msgid "Options set to Default."
+msgstr "Einstellungen zurückgesetzt."
+
+#: admin.inc.php:60
+msgid "Support the Development"
+msgstr "Untersützten Sie die Entwicklung"
+
+#: admin.inc.php:64
+msgid "If you find my"
+msgstr "Wenn Sie meinen"
+
+#: admin.inc.php:66
+msgid "useful, please do"
+msgstr "nützlich finden, bitte"
+
+#: admin.inc.php:68
+msgid "drop in your contribution"
+msgstr "geben Sie eine Spende ab"
+
+#: admin.inc.php:70
+msgid "Some reasons why you should."
+msgstr "Einige Gründe warum."
+
+#: admin.inc.php:78
+msgid "Options:"
+msgstr "Optionen:"
+
+#: admin.inc.php:83
+msgid "Twitter username:"
+msgstr "Twitter Benutzername:"
+
+#: admin.inc.php:87
+msgid "Select Style of TwitterCounter badge"
+msgstr "Wählen Sie den Style für den TwitterCounter"
+
+#: admin.inc.php:110
+msgid "Preview"
+msgstr "Vorschau"
+
+#: admin.inc.php:111
+msgid "Select options for Twitter Remote"
+msgstr "Twitter Remote Optionen auswählen"
+
+#: admin.inc.php:112
+msgid "User ID"
+msgstr "Benutzer ID"
+
+#: admin.inc.php:113
+msgid "Generated automatically from your username. This is the value of <code>users_id</code> in script code generated "
+msgstr "Automatisch durch Ihren Benutzernamen generiert. Dies ist der Wert <code>users_id</code>, der im Script Code genieriert wird "
+
+#: admin.inc.php:115
+msgid "Color 1"
+msgstr "Farbe 1"
+
+#: admin.inc.php:115
+msgid "used for usernames and hyperlinks"
+msgstr "Wird für Benutzernamen und Hyperlinks genutzt"
+
+#: admin.inc.php:116
+msgid "Color 2"
+msgstr "Farbe 2"
+
+#: admin.inc.php:116
+msgid "used for horizontal rulers and text"
+msgstr "Genutzt für horizontalen Schieber und Text"
+
+#: admin.inc.php:117
+msgid "Number of rows"
+msgstr "Zeilenanzahl"
+
+#: admin.inc.php:117
+msgid "How many Twitter users do you want to show? Min 6"
+msgstr "Wieviele Twitterbenutzer sollen angezeigt werden? Min. 6"
+
+#: admin.inc.php:118
+msgid "Width"
+msgstr "Grösse"
+
+#: admin.inc.php:118
+msgid "How wide should the widget be? Min 180 pixels"
+msgstr "Wie breit soll das Widget sein? Min. 180 pixel"
+
+#: admin.inc.php:119
+msgid "Twitter Remote tends to cache your remote. If you don't see your remote changing color, please wait for a few minutes. "
+msgstr "Twitter Remote nutzt Caching. Wenn die geänderte Farbe nicht sofort angezeigt wird, bitte einen Moment warten. "
+
+#: admin.inc.php:120
+msgid "Try forcing reload"
+msgstr "Versuchen Sie eine Aktualisierung"
+
+#: admin.inc.php:124
+msgid "Do you want to set options to Default? If you don't have a copy of the username, please hit Cancel and copy it first."
+msgstr "Möchten Sie die Einstellungen zurücksetzen? Wenn Sie Ihren Benutzernamen für Twitter nicht wissen, bitte klicken Sie auf Abbrechen und kopieren Sie diesen zuerst."
+
+#: admin.inc.php:148
+msgid "TwitterCounter"
+msgstr "TwitterCounter"
+
+#: ald-twittercounter.php:44
+#: ald-twittercounter.php:73
+msgid "Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username"
+msgstr "Bitte gehen Sie auf die Einstellungsseite  &gt; Settings &gt;  für TwitterCounter und geben Sie Ihren Twitter Benutzernamen ein."
+

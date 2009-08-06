@@ -4,7 +4,7 @@ Contributors: Ajay D'Souza, Boris Veldhuijzen van Zanten
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
 Requires at least: 2.5
-Tested up to: 2.8
+Tested up to: 2.8.2
 
 Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 
