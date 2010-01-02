@@ -1,10 +1,10 @@
 === TwitterCounter ===
 Tags: TwitterCounter, Twitter, Counter, Twitter Remote, badge, followers
-Contributors: Ajay D'Souza, Boris Veldhuijzen van Zanten
+Contributors: Ajay D'Souza
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
 Requires at least: 2.5
-Tested up to: 2.8.2
+Tested up to: 2.9.1
 
 Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 
@@ -17,8 +17,9 @@ Additionally, you can add the Twitter Remote to your blog, which shows which twi
 Manually add where you would like to display the badge / remote or use the WordPress sidebar widgets instead.
 
 = Features =
-* Display TwitterCounter badges 
+* Display TwitterCounter badges
 * Display Twitter Remote
+* Choose custom colors for background and text 
 * Sidebar widgets included for ease of use
 * Complete customization from within the comfort of WordPress Admin
 * Deactivating plugin will not kill your theme
@@ -33,7 +34,7 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 3. Activate the Plugin in WP-Admin. 
 
-4. Goto Settings > TwitterCounter and enter your Twitter username
+4. Goto Settings > TwitterCounter and enter your Twitter username. You may need to sign into <a href="http://twittercounter.com">TwitterCounter.com</a>
 
 5. Add `<?php do_action('echo_tc'); ?>` to your theme file where you want to display the counter or use the WordPress widget
 
@@ -41,6 +42,9 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 
 == Changelog ==
+
+= 1.4 =
+* Support for the new button code from TwitterCounter. Now you can choose custom foreground and background color.
 
 = 1.3.3 =
 * Internationalization fix

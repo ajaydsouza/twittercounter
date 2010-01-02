@@ -26,6 +26,9 @@ function tc_options() {
 		$tc_settings[style] = (($_POST['style']!='blank') ? $_POST['style'] : '');
 		$tc_settings[a_color] = $_POST['a_color'];
 		$tc_settings[hr_color] = $_POST['hr_color'];
+		$tc_settings[bg_color] = $_POST['bg_color'];
+		$tc_settings[tc_hr_color] = $_POST['tc_hr_color'];
+		$tc_settings[tc_bg_color] = $_POST['tc_bg_color'];
 		$tc_settings[nr_show] = $_POST['nr_show'];
 		$tc_settings[width] = $_POST['width'];
 
@@ -89,31 +92,43 @@ function tc_options() {
       <label>
       <input type="radio" name="style" value="blank" id="style_0" <?php if ($tc_settings[style]=='') echo 'checked="checked"' ?> />
       <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
-      <br />
+    </p>
+	<p>
       <label>
       <input type="radio" name="style" value="black" id="style_1" <?php if ($tc_settings[style]=='black') echo 'checked="checked"' ?> />
       <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=black" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
-      <br />
+    </p>
+	<p>
       <label>
       <input type="radio" name="style" value="white" id="style_2" <?php if ($tc_settings[style]=='white') echo 'checked="checked"' ?> />
       <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=white" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
-      <br />
+    </p>
+	<p>
       <label>
       <input type="radio" name="style" value="blue" id="style_3" <?php if ($tc_settings[style]=='blue') echo 'checked="checked"' ?> />
       <img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=blue" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label>
-      <br />
+    </p>
+	<p>
       <label>
-      <input type="radio" name="style" value="bird" id="style_4" <?php if ($tc_settings[style]=='bird') echo 'checked="checked"' ?> />
+      <input type="radio" name="style" value="custom" id="style_4" <?php if ($tc_settings[style]=='custom') echo 'checked="checked"' ?> /><script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>/<?php echo $tc_settings[tc_hr_color]; ?>/<?php echo $tc_settings[tc_bg_color]; ?>"></script></label>
+	  <br /><strong><?php _e('Choose settings below:',TC_LOCAL_NAME); ?></strong><br />
+	<?php _e('Text Color',TC_LOCAL_NAME); ?>: #<input class="color" name="tc_hr_color" type="text" value="<?php echo $tc_settings[tc_hr_color]; ?>" size="15" maxlength="6" />
+	  <br />
+	<?php _e('Background Color',TC_LOCAL_NAME); ?>: #<input class="color" name="tc_bg_color" type="text" value="<?php echo $tc_settings[tc_bg_color]; ?>" size="15" maxlength="6" />
+    </p>
+	<p>
+      <label>
+      <input type="radio" name="style" value="bird" id="style_5" <?php if ($tc_settings[style]=='bird') echo 'checked="checked"' ?> />
       <script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=bird"></script></label>
-      <br />
     </p>
 	<div style="float:left;margin-right: 30px"><h4><?php _e('Preview',TC_LOCAL_NAME); ?>:</h4> <br /><?php do_action('echo_twitter_remote'); ?></div>
 	<h4><?php _e('Select options for Twitter Remote',TC_LOCAL_NAME); ?></h4>
 	<p><?php _e('User ID',TC_LOCAL_NAME); ?>: <input name="users_id" type="text" size="6" value="<?php echo $tc_settings[users_id]; ?>" readonly="readonly" />
 		<br /><small><?php _e('Generated automatically from your username. This is the value of <code>users_id</code> in script code generated ',TC_LOCAL_NAME); ?>
 		<a href="http://twittercounter.com/pages/remote?username_owner=<?php echo $tc_settings[username]; ?>" target="_blank">here</a></small></p>
-	<p><?php _e('Color 1',TC_LOCAL_NAME); ?>: #<input class="color" name="a_color" type="text" value="<?php echo $tc_settings[a_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for usernames and hyperlinks',TC_LOCAL_NAME); ?></small></p>
-	<p><?php _e('Color 2',TC_LOCAL_NAME); ?>: #<input class="color" name="hr_color" type="text" value="<?php echo $tc_settings[hr_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for horizontal rulers and text',TC_LOCAL_NAME); ?></small></p>
+	<p><?php _e('Hyperlink color',TC_LOCAL_NAME); ?>: #<input class="color" name="a_color" type="text" value="<?php echo $tc_settings[a_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for usernames and hyperlinks',TC_LOCAL_NAME); ?></small></p>
+	<p><?php _e('Text Color',TC_LOCAL_NAME); ?>: #<input class="color" name="hr_color" type="text" value="<?php echo $tc_settings[hr_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for horizontal rulers and text',TC_LOCAL_NAME); ?></small></p>
+	<p><?php _e('Background Color',TC_LOCAL_NAME); ?>: #<input class="color" name="bg_color" type="text" value="<?php echo $tc_settings[bg_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for some (not all) backgrounds',TC_LOCAL_NAME); ?></small></p>
 	<p><?php _e('Number of rows',TC_LOCAL_NAME); ?>: <input name="nr_show" type="text" value="<?php echo $tc_settings[nr_show]; ?>" size="6" maxlength="2" /> <small><?php _e('How many Twitter users do you want to show? Min 6',TC_LOCAL_NAME); ?></small></p>
 	<p><?php _e('Width',TC_LOCAL_NAME); ?>: <input name="width" type="text" value="<?php echo $tc_settings[width]; ?>" size="6" maxlength="3" />px <small><?php _e('How wide should the widget be? Min 180 pixels',TC_LOCAL_NAME); ?></small></p>
 	<p><?php _e('Twitter Remote tends to cache your remote. If you don\'t see your remote changing color, please wait for a few minutes. ',TC_LOCAL_NAME); ?>

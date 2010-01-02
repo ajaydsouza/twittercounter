@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TwitterCounter
-Version:     1.3.3
+Version:     1.4
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
 Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 Author:      Ajay D'Souza
@@ -45,14 +45,18 @@ function ald_tc()
 	}
 	else
 	{
-		$str = '<script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=';
-		$str .= $tc_settings[username];
-		if($tc_settings[style]!='')
-		{
-			$str .= '&amp;style=';
-			$str .= $tc_settings[style];
+		if ($tc_settings[style]!='custom') {
+			$str = '<script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=';
+			$str .= $tc_settings[username];
+			if($tc_settings[style]!='')
+			{
+				$str .= '&amp;style=';
+				$str .= $tc_settings[style];
+			}
+			$str .= '"></script>';
+		} else {
+			$str = '<script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/'.$tc_settings[username].'/'.$tc_settings[tc_hr_color].'/'.$tc_settings[tc_bg_color].'"></script>';
 		}
-		$str .= '"></script>';
 	}
 	
 	return $str;
@@ -86,6 +90,8 @@ function ald_tr()
 		$str .= $tc_settings[hr_color];
 		$str .= '&amp;a_color=';
 		$str .= $tc_settings[a_color];
+		$str .= '&amp;bg_color=';
+		$str .= $tc_settings[bg_color];
 		$str .= '"></script>';
 	}
 	
@@ -101,13 +107,16 @@ function echo_tr_function() {
 // Default Options
 function tc_default_options() {
 	$tc_settings = 	Array (
-						username => '',		// Twitter Username
-						style => '',		// TwitterCounter style
-						users_id => '',		// TwitterCounter style
-						a_color => '709cb2',		// Twitter Remote Color 1
-						hr_color => 'cccccc',		// Twitter Remote Color 2
-						nr_show => '6',		// Twitter Remote Number of Rows
-						width => '180',		// Twitter Remote Width
+						username => '',				// Twitter Username
+						style => 'custom',				// TwitterCounter style
+						users_id => '',				// TwitterCounter userid
+						a_color => '709cb2',		// Twitter Remote Hyperlink Color
+						hr_color => 'cccccc',		// Twitter Remote Text Color
+						bg_color => 'ffffff',		// Twitter Remote Background Color
+						nr_show => '6',				// Twitter Remote Number of Rows
+						width => '180',				// Twitter Remote Width
+						tc_hr_color => 'ffffff',	// Twitter Remote Text Color
+						tc_bg_color => '111111',	// Twitter Remote Background Color
 						);
 	
 	return $tc_settings;
@@ -176,6 +185,24 @@ add_action("plugins_loaded", "init_ald_tc");
 // This function adds an Options page in WP Admin
 if (is_admin() || strstr($_SERVER['PHP_SELF'], 'wp-admin/')) {
 	require_once(ALD_TC_DIR . "/admin.inc.php");
+
+	// Add meta links
+	function tc_plugin_actions( $links, $file ) {
+		$plugin = plugin_basename(__FILE__);
+	 
+		// create link
+		if ($file == $plugin) {
+			$links[] = '<a href="' . admin_url( 'options-general.php?page=tc_options' ) . '">' . __('Settings', TC_LOCAL_NAME ) . '</a>';
+			$links[] = '<a href="http://ajaydsouza.org">' . __('Support', TC_LOCAL_NAME ) . '</a>';
+			$links[] = '<a href="http://ajaydsouza.com/donate/">' . __('Donate', TC_LOCAL_NAME ) . '</a>';
+		}
+		return $links;
+	}
+	global $wp_version;
+	if ( version_compare( $wp_version, '2.8alpha', '>' ) )
+		add_filter( 'plugin_row_meta', 'tc_plugin_actions', 10, 2 ); // only 2.8 and higher
+	else add_filter( 'plugin_action_links', 'tc_plugin_actions', 10, 2 );
+	
 }
 
 
