@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TwitterCounter
-Version:     1.4
+Version:     1.4.1
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
 Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 Author:      Ajay D'Souza
@@ -107,16 +107,16 @@ function echo_tr_function() {
 // Default Options
 function tc_default_options() {
 	$tc_settings = 	Array (
-						username => '',				// Twitter Username
-						style => 'custom',				// TwitterCounter style
-						users_id => '',				// TwitterCounter userid
-						a_color => '709cb2',		// Twitter Remote Hyperlink Color
-						hr_color => 'cccccc',		// Twitter Remote Text Color
-						bg_color => 'ffffff',		// Twitter Remote Background Color
-						nr_show => '6',				// Twitter Remote Number of Rows
-						width => '180',				// Twitter Remote Width
-						tc_hr_color => 'ffffff',	// Twitter Remote Text Color
-						tc_bg_color => '111111',	// Twitter Remote Background Color
+						'username' => '',				// Twitter Username
+						'style' => 'custom',				// TwitterCounter style
+						'users_id' => '',				// TwitterCounter userid
+						'a_color' => '709cb2',		// Twitter Remote Hyperlink Color
+						'hr_color' => 'cccccc',		// Twitter Remote Text Color
+						'bg_color' => 'ffffff',		// Twitter Remote Background Color
+						'nr_show' => '6',				// Twitter Remote Number of Rows
+						'width' => '180',				// Twitter Remote Width
+						'tc_hr_color' => 'ffffff',	// Twitter Remote Text Color
+						'tc_bg_color' => '111111',	// Twitter Remote Background Color
 						);
 	
 	return $tc_settings;

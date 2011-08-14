@@ -4,7 +4,7 @@ Contributors: Ajay D'Souza
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
 Requires at least: 2.5
-Tested up to: 2.9.1
+Tested up to: 3.3
 
 Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 
@@ -42,6 +42,10 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 
 == Changelog ==
+
+= 1.4.1 =
+* Added Russian language
+* Fixed PHP undefined constant warnings
 
 = 1.4 =
 * Support for the new button code from TwitterCounter. Now you can choose custom foreground and background color.
