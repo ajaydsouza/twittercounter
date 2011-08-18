@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TwitterCounter in italiano\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-18 11:12-0000\n"
+"POT-Creation-Date: 2011-08-18 13:56+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Ajay D'Souza <me@ajaydsouza.com>\n"
-"Language-Team: Gianni Diurno | http://gidibao.net/ <gidibao@gmail.com>\n"
+"Last-Translator: Gianni Diurno (aka gidibao) <gidibao[at]gmail[dot]com>\n"
+"Language-Team: Gianni Diurno | gidibao.net & charmingpress.com <gidibao@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,6 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin.inc.php:40
@@ -37,26 +38,25 @@ msgstr "Seleziona lo stile per il badge di TwitterCounter"
 
 #: admin.inc.php:95
 msgid "Choose settings below:"
-msgstr ""
+msgstr "Scegli qui sotto le impostazioni:"
 
 #: admin.inc.php:96
 #: admin.inc.php:117
 msgid "Text Color"
-msgstr ""
+msgstr "Colore testo"
 
 #: admin.inc.php:98
 #: admin.inc.php:118
 msgid "Background Color"
-msgstr ""
+msgstr "Colore di sfondo"
 
 #: admin.inc.php:111
 msgid "Preview"
 msgstr "Anteprima"
 
 #: admin.inc.php:112
-#, fuzzy
 msgid "Select options for Twitter Widget"
-msgstr "Seleziona le opzioni per Twitter Remote"
+msgstr "Seleziona le opzioni per Twitter Widget"
 
 #: admin.inc.php:113
 msgid "User ID"
@@ -68,7 +68,7 @@ msgstr "Generato in automatico dal tuo nome utente. Questo é il valore <code>us
 
 #: admin.inc.php:116
 msgid "Hyperlink color"
-msgstr ""
+msgstr "Colore link"
 
 #: admin.inc.php:116
 msgid "used for usernames and hyperlinks"
@@ -80,7 +80,7 @@ msgstr "per le righe orizzontali e per il testo"
 
 #: admin.inc.php:118
 msgid "used for some (not all) backgrounds"
-msgstr ""
+msgstr "usato per alcuni (non tutti) gli sfondi"
 
 #: admin.inc.php:119
 msgid "Number of rows"
@@ -99,9 +99,8 @@ msgid "How wide should the widget be? Min 180 pixels"
 msgstr "Quanto desideri sia largo il widget? Minimo 180 pixel"
 
 #: admin.inc.php:121
-#, fuzzy
 msgid "Twitter Widget tends to cache your remote. If you don't see your remote changing color, please wait for a few minutes. "
-msgstr "Twitter Remote avrà cura di effettuare la cache del tuo remote. E' possibile che tu debba attendere alcuni minuti prima di potere vedere una modifica al colore del tuo remote."
+msgstr "Twitter Widget avrà cura di effettuare la cache del tuo remoto. E' possibile che tu debba attendere alcuni minuti prima di potere vedere una modifica al colore del tuo remoto."
 
 #: admin.inc.php:122
 msgid "Try forcing reload"
@@ -113,50 +112,48 @@ msgstr "Desideri ripristinare ai valori predefiniti? Nel caso in cui non avessi 
 
 #: admin.inc.php:133
 msgid "Quick links"
-msgstr ""
+msgstr "Collegamenti veloci"
 
 #: admin.inc.php:135
-#, fuzzy
 msgid "TwitterCounter "
 msgstr "TwitterCounter"
 
 #: admin.inc.php:135
 msgid "plugin page"
-msgstr ""
+msgstr "pagina plugin"
 
 #: admin.inc.php:136
 msgid "Other plugins"
-msgstr ""
+msgstr "Altri plugin"
 
 #: admin.inc.php:137
 msgid "Ajay's blog"
-msgstr ""
+msgstr "Il blog di Ajay"
 
 #: admin.inc.php:138
 #: ald-twittercounter.php:201
 msgid "Support"
-msgstr ""
+msgstr "Supporto"
 
 #: admin.inc.php:139
 msgid "Follow @ajaydsouza on Twitter"
-msgstr ""
+msgstr "Segui @ajaydsouza su Twitter"
 
 #: admin.inc.php:143
 msgid "Recent developments"
-msgstr ""
+msgstr "Sviluppi recenti"
 
 #: admin.inc.php:148
-#, fuzzy
 msgid "Support the development"
 msgstr "Sostieni lo sviluppo"
 
 #: admin.inc.php:156
 msgid "Enter amount in USD: "
-msgstr ""
+msgstr "Inserisci la cifra in USD: "
 
 #: admin.inc.php:160
 msgid "Send your donation to the author of"
-msgstr ""
+msgstr "Invia la tua donazione all'autore di"
 
 #: admin.inc.php:186
 msgid "TwitterCounter"
@@ -169,9 +166,9 @@ msgstr "Vai in Bacheca &gt; Impostazioni &gt; TwitterCounter ed inserisci il tuo
 
 #: ald-twittercounter.php:200
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #: ald-twittercounter.php:202
 msgid "Donate"
-msgstr ""
+msgstr "Donazioni"
 
