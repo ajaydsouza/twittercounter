@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TwitterCounter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-02 17:23+0530\n"
+"POT-Creation-Date: 2011-08-18 11:13-0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Артем <mail@artem-nikitenko.ru>\n"
+"Last-Translator: Ajay D'Souza <me@ajaydsouza.com>\n"
 "Language-Team: Ajay D'Souza <me@ajaydsouza.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,121 +14,150 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin.inc.php:41
+#: admin.inc.php:40
 msgid "Options saved successfully."
 msgstr "Параметры успешно сохранены."
 
-#: admin.inc.php:51
+#: admin.inc.php:50
 msgid "Options set to Default."
 msgstr "Параметры установлены по умолчанию."
 
-#: admin.inc.php:63
-msgid "Support the Development"
-msgstr "Поддержка развития"
-
-#: admin.inc.php:67
-msgid "If you find my"
-msgstr "Если вы нашли мой"
-
-#: admin.inc.php:69
-msgid "useful, please do"
-msgstr "полезно, пожалуйста делайте"
-
-#: admin.inc.php:71
-msgid "drop in your contribution"
-msgstr "Внесите ваш вклад"
-
-#: admin.inc.php:73
-msgid "Some reasons why you should."
-msgstr "Некоторые причины, почему вы должны."
-
-#: admin.inc.php:81
+#: admin.inc.php:62
 msgid "Options:"
 msgstr "Опции:"
 
-#: admin.inc.php:86
+#: admin.inc.php:67
 msgid "Twitter username:"
 msgstr "Имя пользователя Twitter:"
 
-#: admin.inc.php:90
+#: admin.inc.php:71
 msgid "Select Style of TwitterCounter badge"
 msgstr "Выберите стиль значка TwitterCounter"
 
-#: admin.inc.php:114
+#: admin.inc.php:95
 msgid "Choose settings below:"
 msgstr "Выберите настройки ниже:"
 
-#: admin.inc.php:115
-#: admin.inc.php:130
+#: admin.inc.php:96
+#: admin.inc.php:117
 msgid "Text Color"
 msgstr "Цвет текста"
 
-#: admin.inc.php:117
-#: admin.inc.php:131
+#: admin.inc.php:98
+#: admin.inc.php:118
 msgid "Background Color"
 msgstr "Цвет бэкграунда"
 
-#: admin.inc.php:124
+#: admin.inc.php:111
 msgid "Preview"
 msgstr "Предпросмотр"
 
-#: admin.inc.php:125
-msgid "Select options for Twitter Remote"
+#: admin.inc.php:112
+#, fuzzy
+msgid "Select options for Twitter Widget"
 msgstr "Выбор параметров для Twitter Remote"
 
-#: admin.inc.php:126
+#: admin.inc.php:113
 msgid "User ID"
 msgstr "ID пользователя"
 
-#: admin.inc.php:127
+#: admin.inc.php:114
 msgid "Generated automatically from your username. This is the value of <code>users_id</code> in script code generated "
 msgstr "Создается автоматически с вашего имени пользователя. Это значение <code> users_id </ код> в генерируемый скрипт код"
 
-#: admin.inc.php:129
+#: admin.inc.php:116
 msgid "Hyperlink color"
 msgstr "Цвет гиперссылки"
 
-#: admin.inc.php:129
+#: admin.inc.php:116
 msgid "used for usernames and hyperlinks"
 msgstr "Использовать для имен пользователя и гиперссылок"
 
-#: admin.inc.php:130
+#: admin.inc.php:117
 msgid "used for horizontal rulers and text"
 msgstr "используется для горизонтальной линейки и текста"
 
-#: admin.inc.php:131
+#: admin.inc.php:118
 msgid "used for some (not all) backgrounds"
 msgstr "используется для некоторых (не всех) фонов"
 
-#: admin.inc.php:132
+#: admin.inc.php:119
 msgid "Number of rows"
 msgstr "Число колонок"
 
-#: admin.inc.php:132
+#: admin.inc.php:119
 msgid "How many Twitter users do you want to show? Min 6"
 msgstr "Сколько Twitter пользователей вы хотите показать? Мин 6"
 
-#: admin.inc.php:133
+#: admin.inc.php:120
 msgid "Width"
 msgstr "Ширина"
 
-#: admin.inc.php:133
+#: admin.inc.php:120
 msgid "How wide should the widget be? Min 180 pixels"
 msgstr "Насколько широк должен быть виджет? Мин 180 пикселей"
 
-#: admin.inc.php:134
-msgid "Twitter Remote tends to cache your remote. If you don't see your remote changing color, please wait for a few minutes. "
+#: admin.inc.php:121
+#, fuzzy
+msgid "Twitter Widget tends to cache your remote. If you don't see your remote changing color, please wait for a few minutes. "
 msgstr "Twitter Remote требует очистки кэша. Если вы не видите удаленного изменения цвета, пожалуйста, подождите несколько минут."
 
-#: admin.inc.php:135
+#: admin.inc.php:122
 msgid "Try forcing reload"
 msgstr "Попробуйте перезагрузить"
 
-#: admin.inc.php:139
+#: admin.inc.php:126
 msgid "Do you want to set options to Default? If you don't have a copy of the username, please hit Cancel and copy it first."
 msgstr "Хотите ли вы задать параметры по умолчанию? Если у вас нет копии исени пользователя, пожалуйста, нажмите Отмена и скопируйте его в первую очередь."
 
-#: admin.inc.php:163
+#: admin.inc.php:133
+msgid "Quick links"
+msgstr ""
+
+#: admin.inc.php:135
+#, fuzzy
+msgid "TwitterCounter "
+msgstr "TwitterCounter"
+
+#: admin.inc.php:135
+msgid "plugin page"
+msgstr ""
+
+#: admin.inc.php:136
+msgid "Other plugins"
+msgstr ""
+
+#: admin.inc.php:137
+msgid "Ajay's blog"
+msgstr ""
+
+#: admin.inc.php:138
+#: ald-twittercounter.php:201
+msgid "Support"
+msgstr "Техподдержка"
+
+#: admin.inc.php:139
+msgid "Follow @ajaydsouza on Twitter"
+msgstr ""
+
+#: admin.inc.php:143
+msgid "Recent developments"
+msgstr ""
+
+#: admin.inc.php:148
+#, fuzzy
+msgid "Support the development"
+msgstr "Поддержка развития"
+
+#: admin.inc.php:156
+msgid "Enter amount in USD: "
+msgstr ""
+
+#: admin.inc.php:160
+msgid "Send your donation to the author of"
+msgstr ""
+
+#: admin.inc.php:186
 msgid "TwitterCounter"
 msgstr "TwitterCounter"
 
@@ -137,15 +166,11 @@ msgstr "TwitterCounter"
 msgid "Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username"
 msgstr "Пожалуйста посетите WP-Admin &gt; Настройки &gt; TwitterCounter и введите ваше имя пользователя Twitter"
 
-#: ald-twittercounter.php:195
+#: ald-twittercounter.php:200
 msgid "Settings"
 msgstr "Настройки"
 
-#: ald-twittercounter.php:196
-msgid "Support"
-msgstr "Техподдержка"
-
-#: ald-twittercounter.php:197
+#: ald-twittercounter.php:202
 msgid "Donate"
 msgstr "Добровольное пожертвование"
 

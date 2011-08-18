@@ -1,5 +1,5 @@
 === TwitterCounter ===
-Tags: TwitterCounter, Twitter, Counter, Twitter Remote, badge, followers
+Tags: TwitterCounter, Twitter, Counter, Twitter Widget, badge, followers
 Contributors: Ajay D'Souza
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
@@ -12,13 +12,13 @@ Integrate TwitterCounter.com badges on your blog to display the number of follow
 
 Allows you to integrate <a href="http://twittercounter.com">TwitterCounter.com</a> badges on your blog.
 
-Additionally, you can add the Twitter Remote to your blog, which shows which twitter users recently visited your blog or website.
+Additionally, you can add the Twitter Widget to your blog, which shows which twitter users recently visited your blog or website.
 
 Manually add where you would like to display the badge / remote or use the WordPress sidebar widgets instead.
 
 = Features =
 * Display TwitterCounter badges
-* Display Twitter Remote
+* Display Twitter Widget
 * Choose custom colors for background and text 
 * Sidebar widgets included for ease of use
 * Complete customization from within the comfort of WordPress Admin
@@ -40,8 +40,17 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 6. Add `<?php do_action('echo_twitter_remote'); ?>` to your theme file where you want to display the counter or use the WordPress widget
 
+== Screenshots ==
+
+1. TwitterCounter options in WP-Admin
+
 
 == Changelog ==
+
+= 1.5 =
+* Added: Twitter Button with Photo
+* Modified: Better compatibility with the latest versions of WordPress. If you are using the sidebar widgets, please re-add them to your theme under Appearance > Widgets
+* Modified: Twitter Widget has been renamed to Twitter Widget
 
 = 1.4.1 =
 * Added Russian language
@@ -57,10 +66,10 @@ Manually add where you would like to display the badge / remote or use the WordP
 * Incorporated the new javascript based code. Added the new Big Bird style for the twittercounter button
 
 = 1.2 =
-* Integrated Twitter Remote
+* Integrated Twitter Widget
 
 = 1.1 =
-* Twitter Remote added. All options can be customized from with WP-Admin
+* Twitter Widget added. All options can be customized from with WP-Admin
 
 = 1.0 =
 * Release
@@ -78,5 +87,4 @@ You can select the type of badge / remote you would like to display from within 
 
 = Support =
 
-All questions need to be redirected at http://ajaydsouza.org/
-No support questions will be entertained in the comments or via email.
+Read how you can receive support for this plugin at http://ajaydsouza.com/support

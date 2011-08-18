@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TwitterCounter
-Version:     1.4.1
+Version:     1.5
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
 Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 Author:      Ajay D'Souza
@@ -67,7 +67,7 @@ function echo_tc_function() {
 	echo ald_tc();
 }
 
-/* Function for Twitter Remote */
+/* Function for Twitter Widget */
 function ald_tr()
 {
 	$tc_settings = tc_read_options();
@@ -110,13 +110,13 @@ function tc_default_options() {
 						'username' => '',				// Twitter Username
 						'style' => 'custom',				// TwitterCounter style
 						'users_id' => '',				// TwitterCounter userid
-						'a_color' => '709cb2',		// Twitter Remote Hyperlink Color
-						'hr_color' => 'cccccc',		// Twitter Remote Text Color
-						'bg_color' => 'ffffff',		// Twitter Remote Background Color
-						'nr_show' => '6',				// Twitter Remote Number of Rows
-						'width' => '180',				// Twitter Remote Width
-						'tc_hr_color' => 'ffffff',	// Twitter Remote Text Color
-						'tc_bg_color' => '111111',	// Twitter Remote Background Color
+						'a_color' => '709cb2',		// Twitter Widget Hyperlink Color
+						'hr_color' => 'cccccc',		// Twitter Widget Text Color
+						'bg_color' => 'ffffff',		// Twitter Widget Background Color
+						'nr_show' => '6',				// Twitter Widget Number of Rows
+						'width' => '180',				// Twitter Widget Width
+						'tc_hr_color' => 'ffffff',	// Twitter Widget Text Color
+						'tc_bg_color' => '111111',	// Twitter Widget Background Color
 						);
 	
 	return $tc_settings;
@@ -171,14 +171,19 @@ function widget_ald_tc($args) {
 function widget_ald_tr($args) {	
 	extract($args); // extracts before_widget,before_title,after_title,after_widget
 	echo $before_widget;
-	echo $before_title.'Twitter Remote'.$after_title;
+	echo $before_title.'Twitter Widget'.$after_title;
 	echo ald_tr();
 	echo $after_widget;
 }
 
 function init_ald_tc(){
-	register_sidebar_widget('TwitterCounter', 'widget_ald_tc');
-	register_sidebar_widget('Twitter Remote', 'widget_ald_tr');
+	if (function_exists('wp_register_sidebar_widget')) {
+		wp_register_sidebar_widget('widget_ald_tc', 'TwitterCounter', 'widget_ald_tc');
+		wp_register_sidebar_widget('widget_ald_tr', 'Twitter Widget', 'widget_ald_tr');
+	} else {
+		register_sidebar_widget('TwitterCounter', 'widget_ald_tc');
+		register_sidebar_widget('Twitter Widget', 'widget_ald_tr');
+	}
 }
 add_action("plugins_loaded", "init_ald_tc");
  
@@ -193,7 +198,7 @@ if (is_admin() || strstr($_SERVER['PHP_SELF'], 'wp-admin/')) {
 		// create link
 		if ($file == $plugin) {
 			$links[] = '<a href="' . admin_url( 'options-general.php?page=tc_options' ) . '">' . __('Settings', TC_LOCAL_NAME ) . '</a>';
-			$links[] = '<a href="http://ajaydsouza.org">' . __('Support', TC_LOCAL_NAME ) . '</a>';
+			$links[] = '<a href="http://ajaydsouza.com/support/">' . __('Support', TC_LOCAL_NAME ) . '</a>';
 			$links[] = '<a href="http://ajaydsouza.com/donate/">' . __('Donate', TC_LOCAL_NAME ) . '</a>';
 		}
 		return $links;
@@ -202,8 +207,30 @@ if (is_admin() || strstr($_SERVER['PHP_SELF'], 'wp-admin/')) {
 	if ( version_compare( $wp_version, '2.8alpha', '>' ) )
 		add_filter( 'plugin_row_meta', 'tc_plugin_actions', 10, 2 ); // only 2.8 and higher
 	else add_filter( 'plugin_action_links', 'tc_plugin_actions', 10, 2 );
+
+	// Display message about plugin update option
+	function tc_check_version($file, $plugin_data) {
+		global $wp_version;
+		static $this_plugin;
+		$wp_version = str_replace(".","",$wp_version);
+		if (!$this_plugin) $this_plugin = plugin_basename(__FILE__);
+		if ($file == $this_plugin){
+			$current = $wp_version < 28 ? get_option('update_plugins') : get_transient('update_plugins');
+			if (!isset($current->response[$file])) return false;
+
+			$columns =  $wp_version < 28 ? 5 : 3;
+			$url = 'http://svn.wp-plugins.org/twittercounter/trunk/update-info.txt';
+			$update = wp_remote_fopen($url);
+			if ($update != "") {
+				echo '<tr class="plugin-update-tr"><td colspan="'.$columns.'" class="plugin-update"><div class="update-message">';
+				echo $update;
+				echo '</div></td></tr>';
+			}
+		}
+	}
+	add_action('after_plugin_row', 'tc_check_version', 10, 2);
 	
-}
+} // End admin.inc
 
 
 ?>
