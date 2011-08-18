@@ -10,7 +10,7 @@ Integrate TwitterCounter.com badges on your blog to display the number of follow
 
 == Description ==
 
-Allows you to integrate <a href="http://twittercounter.com">TwitterCounter.com</a> badges on your blog.
+<a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/">TwitterCounter plugin</a> allows you to integrate <a href="http://twittercounter.com">TwitterCounter.com</a> badges on your blog.
 
 Additionally, you can add the Twitter Widget to your blog, which shows which twitter users recently visited your blog or website.
 
