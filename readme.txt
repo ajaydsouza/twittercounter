@@ -3,8 +3,9 @@ Tags: TwitterCounter, Twitter, Counter, Twitter Widget, badge, followers
 Contributors: Ajay D'Souza
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
-Requires at least: 2.5
-Tested up to: 3.3
+Requires at least: 3.0
+Tested up to: 3.4
+License: GPLv2 or later
 
 Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 
@@ -17,40 +18,31 @@ Additionally, you can add the Twitter Widget to your blog, which shows which twi
 Manually add where you would like to display the badge / remote or use the WordPress sidebar widgets instead.
 
 = Features =
-* Display TwitterCounter badges
+* Display TwitterCounter buttons. Multiple options are available
 * Display Twitter Widget
-* Choose custom colors for background and text 
-* Sidebar widgets included for ease of use
+* Sidebar widgets allow you to add one or more buttons and widgets
 * Complete customization from within the comfort of WordPress Admin
-* Deactivating plugin will not kill your theme
-* Clean uninstall if you choose to delete the plugin
+* Clean uninstall if you choose to delete the plugin (but why would you!)
 
 
-== Installation ==
+== Upgrade Notice ==
 
-1. Download TwitterCounter. 
+= 1.6 =
+* Plugin updated for new TwitterCounter buttons and widgets options and better WordPress widget support
 
-2. Extract the contents of twittercounter.zip to wp-content/plugins/ folder. You should get a folder called twittercounter.
-
-3. Activate the Plugin in WP-Admin. 
-
-4. Goto Settings > TwitterCounter and enter your Twitter username. You may need to sign into <a href="http://twittercounter.com">TwitterCounter.com</a>
-
-5. Add `<?php do_action('echo_tc'); ?>` to your theme file where you want to display the counter or use the WordPress widget
-
-6. Add `<?php do_action('echo_twitter_remote'); ?>` to your theme file where you want to display the counter or use the WordPress widget
-
-== Screenshots ==
-
-1. TwitterCounter options in WP-Admin
 
 
 == Changelog ==
 
+= 1.6 =
+* Modified: Plugin updated for new TwitterCounter buttons and widgets options
+* Modified: Users now need to enter their Twitter IDs in the settings page for best results
+* Modified: Updated WordPress widget for multiple instances
+
 = 1.5 =
 * Added: Twitter Button with Photo
 * Modified: Better compatibility with the latest versions of WordPress. If you are using the sidebar widgets, please re-add them to your theme under Appearance > Widgets
-* Modified: Twitter Widget has been renamed to Twitter Widget
+* Modified: Twitter Remote has been renamed to Twitter Widget
 
 = 1.4.1 =
 * Added Russian language
@@ -75,16 +67,43 @@ Manually add where you would like to display the badge / remote or use the WordP
 * Release
 
 
+== Installation ==
+
+1. Download TwitterCounter. 
+
+2. Extract the contents of twittercounter.zip to wp-content/plugins/ folder. You should get a folder called twittercounter.
+
+3. Activate the Plugin in WP-Admin. 
+
+4. Goto Settings &raquo; TwitterCounter and enter your Twitter username. First time users will need to sign into <a href="http://twittercounter.com">TwitterCounter.com</a>
+
+5. Add `<?php do_action('echo_tc'); ?>` to your theme file where you want to display the counter or use the WordPress widget
+
+6. Add `<?php do_action('echo_twitter_remote'); ?>` to your theme file where you want to display the counter or use the WordPress widget
+
+
+== Screenshots ==
+
+1. TwitterCounter options in WP-Admin
+2. Twitter Widget options in WP-Admin
+3. Custom Styles options in WP-Admin
+
+
 == Frequently Asked Questions ==
 
-= What are the requirements for this plugin? =
-
-WordPress 2.5 or above
+If your question isn't listed here, please post a comment at the <a href="http://wordpress.org/support/plugin/twittercounter">WordPress.org support forum</a>. I monitor the forums on an ongoing basis. If you're looking for more advanced support, please see <a href="http://ajaydsouza.com/support/">details here</a>.
 
 = Can I customize what is displayed? =
 
-You can select the type of badge / remote you would like to display from within WP-Admin
+Several customization options are available via the Settings page in WordPress Admin. You can access this via <strong>Settings &raquo; TwitterCounter</strong>
 
-= Support =
+== Wishlist ==
 
-Read how you can receive support for this plugin at http://ajaydsouza.com/support
+Below are a few features that I plan on implementing in future versions of the plugin. However, there is no fixed time-frame for this and largely depends on how much time I can contribute to development.
+
+* Display statistics from TwitterCounter
+* Integration with Twitter 
+
+If you would like a feature to be added, or if you already have the code for the feature, you can let us know by <a href="http://wordpress.org/support/plugin/twittercounter">posting in this forum</a>.
+
+

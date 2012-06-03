@@ -1,3 +1,0 @@
-* Added: Twitter Button with Photo<br />
-* Modified: Better compatibility with the latest versions of WordPress. If you are using the sidebar widgets, please re-add them to your theme under Appearance > Widgets<br />
-* Modified: Twitter Widget has been renamed to Twitter Widget

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TwitterCounter Wordpress Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-18 11:12-0000\n"
+"POT-Creation-Date: 2012-06-03 01:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ajay D'Souza <me@ajaydsouza.com>\n"
 "Language-Team: Bjoern Buerstinghaus <bjoern@buerstinghaus.net>\n"
@@ -15,163 +15,241 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin.inc.php:40
+#: admin.inc.php:31
 msgid "Options saved successfully."
 msgstr "Änderungen erfolgreich gespeichert."
 
-#: admin.inc.php:50
+#: admin.inc.php:41
 msgid "Options set to Default."
 msgstr "Einstellungen zurückgesetzt."
 
-#: admin.inc.php:62
-msgid "Options:"
-msgstr "Optionen:"
-
-#: admin.inc.php:67
-msgid "Twitter username:"
-msgstr "Twitter Benutzername:"
-
-#: admin.inc.php:71
-msgid "Select Style of TwitterCounter badge"
-msgstr "Wählen Sie den Style für den TwitterCounter"
-
-#: admin.inc.php:95
-msgid "Choose settings below:"
-msgstr ""
-
-#: admin.inc.php:96
-#: admin.inc.php:117
-msgid "Text Color"
-msgstr ""
-
-#: admin.inc.php:98
-#: admin.inc.php:118
-msgid "Background Color"
-msgstr ""
-
-#: admin.inc.php:111
-msgid "Preview"
-msgstr "Vorschau"
-
-#: admin.inc.php:112
-#, fuzzy
-msgid "Select options for Twitter Widget"
-msgstr "Twitter Remote Optionen auswählen"
-
-#: admin.inc.php:113
-msgid "User ID"
-msgstr "Benutzer ID"
-
-#: admin.inc.php:114
-msgid "Generated automatically from your username. This is the value of <code>users_id</code> in script code generated "
-msgstr "Automatisch durch Ihren Benutzernamen generiert. Dies ist der Wert <code>users_id</code>, der im Script Code genieriert wird "
-
-#: admin.inc.php:116
-msgid "Hyperlink color"
-msgstr ""
-
-#: admin.inc.php:116
-msgid "used for usernames and hyperlinks"
-msgstr "Wird für Benutzernamen und Hyperlinks genutzt"
-
-#: admin.inc.php:117
-msgid "used for horizontal rulers and text"
-msgstr "Genutzt für horizontalen Schieber und Text"
-
-#: admin.inc.php:118
-msgid "used for some (not all) backgrounds"
-msgstr ""
-
-#: admin.inc.php:119
-msgid "Number of rows"
-msgstr "Zeilenanzahl"
-
-#: admin.inc.php:119
-msgid "How many Twitter users do you want to show? Min 6"
-msgstr "Wieviele Twitterbenutzer sollen angezeigt werden? Min. 6"
-
-#: admin.inc.php:120
-msgid "Width"
-msgstr "Grösse"
-
-#: admin.inc.php:120
-msgid "How wide should the widget be? Min 180 pixels"
-msgstr "Wie breit soll das Widget sein? Min. 180 pixel"
-
-#: admin.inc.php:121
-#, fuzzy
-msgid "Twitter Widget tends to cache your remote. If you don't see your remote changing color, please wait for a few minutes. "
-msgstr "Twitter Remote nutzt Caching. Wenn die geänderte Farbe nicht sofort angezeigt wird, bitte einen Moment warten. "
-
-#: admin.inc.php:122
-msgid "Try forcing reload"
-msgstr "Versuchen Sie eine Aktualisierung"
-
-#: admin.inc.php:126
-msgid "Do you want to set options to Default? If you don't have a copy of the username, please hit Cancel and copy it first."
-msgstr "Möchten Sie die Einstellungen zurücksetzen? Wenn Sie Ihren Benutzernamen für Twitter nicht wissen, bitte klicken Sie auf Abbrechen und kopieren Sie diesen zuerst."
-
-#: admin.inc.php:133
-msgid "Quick links"
-msgstr ""
-
-#: admin.inc.php:135
-#, fuzzy
-msgid "TwitterCounter "
-msgstr "TwitterCounter"
-
-#: admin.inc.php:135
-msgid "plugin page"
-msgstr ""
-
-#: admin.inc.php:136
-msgid "Other plugins"
-msgstr ""
-
-#: admin.inc.php:137
-msgid "Ajay's blog"
-msgstr ""
-
-#: admin.inc.php:138
-#: ald-twittercounter.php:201
-msgid "Support"
-msgstr ""
-
-#: admin.inc.php:139
-msgid "Follow @ajaydsouza on Twitter"
-msgstr ""
-
-#: admin.inc.php:143
-msgid "Recent developments"
-msgstr ""
-
-#: admin.inc.php:148
+#: admin.inc.php:54
 #, fuzzy
 msgid "Support the development"
 msgstr "Untersützten Sie die Entwicklung"
 
-#: admin.inc.php:156
+#: admin.inc.php:62
 msgid "Enter amount in USD: "
 msgstr ""
 
-#: admin.inc.php:160
+#: admin.inc.php:66
 msgid "Send your donation to the author of"
 msgstr ""
 
+#: admin.inc.php:72
+msgid "Quick links"
+msgstr ""
+
+#: admin.inc.php:74
+#, fuzzy
+msgid "TwitterCounter "
+msgstr "TwitterCounter"
+
+#: admin.inc.php:74
+msgid "plugin page"
+msgstr ""
+
+#: admin.inc.php:75
+msgid "Other plugins"
+msgstr ""
+
+#: admin.inc.php:76
+msgid "Ajay's blog"
+msgstr ""
+
+#: admin.inc.php:77
+#: ald-twittercounter.php:384
+msgid "Support"
+msgstr ""
+
+#: admin.inc.php:78
+msgid "Follow @ajaydsouza on Twitter"
+msgstr ""
+
+#: admin.inc.php:82
+msgid "Recent developments"
+msgstr ""
+
+#: admin.inc.php:97
+#, fuzzy
+msgid "Twitter Buttons"
+msgstr "Twitter Benutzername:"
+
+#: admin.inc.php:100
+msgid "Twitter username:"
+msgstr "Twitter Benutzername:"
+
+#: admin.inc.php:103
+#, fuzzy
+msgid "Twitter ID:"
+msgstr "Twitter Benutzername:"
+
+#: admin.inc.php:105
+msgid "Find out your Twitter ID from <a href=\"http://id.twidder.info/\" target=\"_blank\">TwIDder</a> or <a href=\"http://idfromuser.org/\" target=\"_blank\">idfromuser.org</a> or <a href=\"http://www.idfromuser.com/\" target=\"_blank\">idfromuser.com</a>"
+msgstr ""
+
+#: admin.inc.php:108
+msgid "Select Style of TwitterCounter badge"
+msgstr "Wählen Sie den Style für den TwitterCounter"
+
+#: admin.inc.php:110
+#: admin.inc.php:156
+msgid "If you have never used TwitterCounter before please visit <a href=\"http://twittercounter.com\" target=\"_blank\">http://twittercounter.com</a>, enter your Twitter username and hit <strong>Get Stats</strong>"
+msgstr ""
+
+#: admin.inc.php:120
+msgid "Choose settings for the above button:"
+msgstr ""
+
+#: admin.inc.php:121
+msgid "Text Color"
+msgstr ""
+
+#: admin.inc.php:123
+#: admin.inc.php:170
+#: ald-twittercounter.php:314
+msgid "Background Color"
+msgstr ""
+
+#: admin.inc.php:128
+msgid "This generates just the count wrapped with a div with <code>id=\"TwitterCounter\"</code>. You can enter your own styles in the <strong>Custom Styles</strong> tab"
+msgstr ""
+
+#: admin.inc.php:130
+msgid "Older buttons (count may not be accurate)"
+msgstr ""
+
+#: admin.inc.php:148
+#: ald-twittercounter.php:271
+msgid "Twitter Widget"
+msgstr ""
+
+#: admin.inc.php:151
+msgid "Preview"
+msgstr "Vorschau"
+
+#: admin.inc.php:152
+#, fuzzy
+msgid "Select options for Twitter Widget"
+msgstr "Twitter Remote Optionen auswählen"
+
+#: admin.inc.php:158
+msgid "User ID"
+msgstr "Benutzer ID"
+
+#: admin.inc.php:160
+#, fuzzy
+msgid "This is the value of <code>users_id</code> in script code generated "
+msgstr "Automatisch durch Ihren Benutzernamen generiert. Dies ist der Wert <code>users_id</code>, der im Script Code genieriert wird "
+
+#: admin.inc.php:164
+#: ald-twittercounter.php:308
+msgid "Text and links"
+msgstr ""
+
+#: admin.inc.php:165
+msgid "used for usernames and hyperlinks"
+msgstr "Wird für Benutzernamen und Hyperlinks genutzt"
+
+#: admin.inc.php:167
+#: ald-twittercounter.php:302
+#, fuzzy
+msgid "Header horizontal rules"
+msgstr "Genutzt für horizontalen Schieber und Text"
+
+#: admin.inc.php:168
+msgid "used for horizontal rulers and text"
+msgstr "Genutzt für horizontalen Schieber und Text"
+
+#: admin.inc.php:171
+msgid "used for some (not all) backgrounds"
+msgstr ""
+
+#: admin.inc.php:173
+#: ald-twittercounter.php:296
+msgid "Number of rows"
+msgstr "Zeilenanzahl"
+
+#: admin.inc.php:174
+msgid "How many Twitter users do you want to show? Min 6"
+msgstr "Wieviele Twitterbenutzer sollen angezeigt werden? Min. 6"
+
+#: admin.inc.php:176
+#: ald-twittercounter.php:290
+msgid "Width"
+msgstr "Grösse"
+
+#: admin.inc.php:177
+msgid "How wide should the widget be? Min 180 pixels"
+msgstr "Wie breit soll das Widget sein? Min. 180 pixel"
+
 #: admin.inc.php:186
+msgid "Custom Styles"
+msgstr ""
+
+#: admin.inc.php:189
+msgid "Custom CSS to add to header:"
+msgstr ""
+
+#: admin.inc.php:192
+msgid "Do not include <code>style</code> tags. Check out the <a href=\"http://wordpress.org/extend/plugins/twittercounter/faq/\">FAQ</a> for available CSS classes to style."
+msgstr ""
+
+#: admin.inc.php:198
+msgid "Do you want to set options to Default? If you don't have a copy of the username, please hit Cancel and copy it first."
+msgstr "Möchten Sie die Einstellungen zurücksetzen? Wenn Sie Ihren Benutzernamen für Twitter nicht wissen, bitte klicken Sie auf Abbrechen und kopieren Sie diesen zuerst."
+
+#: admin.inc.php:227
+#: ald-twittercounter.php:213
 msgid "TwitterCounter"
 msgstr "TwitterCounter"
 
-#: ald-twittercounter.php:44
-#: ald-twittercounter.php:77
+#: ald-twittercounter.php:45
+#: ald-twittercounter.php:87
 msgid "Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username"
 msgstr "Bitte gehen Sie auf die Einstellungsseite  &gt; Settings &gt;  für TwitterCounter und geben Sie Ihren Twitter Benutzernamen ein."
 
-#: ald-twittercounter.php:200
+#: ald-twittercounter.php:212
+#, fuzzy
+msgid "Display TwitterCounter"
+msgstr "TwitterCounter"
+
+#: ald-twittercounter.php:221
+#: ald-twittercounter.php:283
+msgid "Title"
+msgstr ""
+
+#: ald-twittercounter.php:225
+msgid "Style"
+msgstr ""
+
+#: ald-twittercounter.php:270
+#, fuzzy
+msgid "Display Twitter Widget"
+msgstr "Twitter Remote Optionen auswählen"
+
+#: ald-twittercounter.php:287
+msgid "Leave the below options blank to use the default settings"
+msgstr ""
+
+#: ald-twittercounter.php:383
 msgid "Settings"
 msgstr ""
 
-#: ald-twittercounter.php:202
+#: ald-twittercounter.php:385
 msgid "Donate"
 msgstr ""
 
+#~ msgid "Options:"
+#~ msgstr "Optionen:"
+
+#, fuzzy
+#~ msgid ""
+#~ "Twitter Widget tends to cache your remote. If you don't see your remote "
+#~ "changing color, please wait for a few minutes. "
+#~ msgstr ""
+#~ "Twitter Remote nutzt Caching. Wenn die geänderte Farbe nicht sofort "
+#~ "angezeigt wird, bitte einen Moment warten. "
+
+#~ msgid "Try forcing reload"
+#~ msgstr "Versuchen Sie eine Aktualisierung"
