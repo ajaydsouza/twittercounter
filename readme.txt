@@ -4,7 +4,7 @@ Contributors: Ajay D'Souza
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
 Requires at least: 3.0
-Tested up to: 3.4
+Tested up to: 3.6
 License: GPLv2 or later
 
 Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
@@ -27,12 +27,14 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 == Upgrade Notice ==
 
-= 1.6 =
-* Plugin updated for new TwitterCounter buttons and widgets options and better WordPress widget support
-
-
+= 1.6.1 =
+* Fixed: PHP Notices; Security upgrade
 
 == Changelog ==
+
+= 1.6.1 =
+* Fixed: PHP Notices
+* Fixed: Possible CSRF loophole in Settings page
 
 = 1.6 =
 * Modified: Plugin updated for new TwitterCounter buttons and widgets options
@@ -40,7 +42,7 @@ Manually add where you would like to display the badge / remote or use the WordP
 * Modified: Updated WordPress widget for multiple instances
 
 = 1.5 =
-* Added: Twitter Button with Photo
+* New: Twitter Button with Photo
 * Modified: Better compatibility with the latest versions of WordPress. If you are using the sidebar widgets, please re-add them to your theme under Appearance > Widgets
 * Modified: Twitter Remote has been renamed to Twitter Widget
 

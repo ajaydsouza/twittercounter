@@ -11,19 +11,19 @@ function tc_options() {
 
 	$tc_settings = tc_read_options();
 
-	if($_POST['tc_save']){
-		$tc_settings[username] = $_POST['username'];
-		$tc_settings[twitter_id] = $_POST['twitter_id'];
-		$tc_settings[users_id] = $_POST['users_id'];
-		$tc_settings[style] = (($_POST['style']!='blank') ? $_POST['style'] : '');
-		$tc_settings[a_color] = $_POST['a_color'];
-		$tc_settings[hr_color] = $_POST['hr_color'];
-		$tc_settings[bg_color] = $_POST['bg_color'];
-		$tc_settings[tc_hr_color] = $_POST['tc_hr_color'];
-		$tc_settings[tc_bg_color] = $_POST['tc_bg_color'];
-		$tc_settings[nr_show] = $_POST['nr_show'];
-		$tc_settings[width] = $_POST['width'];
-		$tc_settings[custom_CSS] = $_POST['custom_CSS'];
+	if( (isset($_POST['tc_save']))&&( check_admin_referer('tc-plugin') ) ) {
+		$tc_settings['username'] = $_POST['username'];
+		$tc_settings['twitter_id'] = $_POST['twitter_id'];
+		$tc_settings['users_id'] = $_POST['users_id'];
+		$tc_settings['style'] = (($_POST['style']!='blank') ? $_POST['style'] : '');
+		$tc_settings['a_color'] = $_POST['a_color'];
+		$tc_settings['hr_color'] = $_POST['hr_color'];
+		$tc_settings['bg_color'] = $_POST['bg_color'];
+		$tc_settings['tc_hr_color'] = $_POST['tc_hr_color'];
+		$tc_settings['tc_bg_color'] = $_POST['tc_bg_color'];
+		$tc_settings['nr_show'] = $_POST['nr_show'];
+		$tc_settings['width'] = $_POST['width'];
+		$tc_settings['custom_CSS'] = $_POST['custom_CSS'];
 		
 		update_option('ald_tc_settings', $tc_settings);
 
@@ -80,7 +80,7 @@ function tc_options() {
 		</div>
 		<div class="side-widget">
 		<span class="title"><?php _e('Recent developments',TC_LOCAL_NAME) ?></span>				
-		<?php require_once(ABSPATH . WPINC . '/rss.php'); wp_widget_rss_output('http://ajaydsouza.com/archives/category/wordpress/plugins/feed/', array('items' => 5, 'show_author' => 0, 'show_date' => 1));
+		<?php require_once(ABSPATH . WPINC . '/class-simplepie.php'); wp_widget_rss_output('http://ajaydsouza.com/archives/category/wordpress/plugins/feed/', array('items' => 5, 'show_author' => 0, 'show_date' => 1));
 		?>
 		</div>
 		<div class="side-widget">
@@ -98,48 +98,48 @@ function tc_options() {
 				</h3>
 				<table class="form-table">
 				<tr style="vertical-align: top;"><th scope="row"><label for="username"><?php _e('Twitter username:',TC_LOCAL_NAME); ?></label></th>
-				<td><input type="text" name="username" id="username" value="<?php echo $tc_settings[username]; ?>" size="40" maxlength="32" /></td>
+				<td><input type="text" name="username" id="username" value="<?php echo $tc_settings['username']; ?>" size="40" maxlength="32" /></td>
 				</tr>
 				<tr style="vertical-align: top;"><th scope="row"><label for="twitter_id"><?php _e('Twitter ID:',TC_LOCAL_NAME); ?></label></th>
-				<td><input type="text" name="twitter_id" id="twitter_id" value="<?php echo $tc_settings[twitter_id]; ?>" size="40" maxlength="32" />
-				<br /><?php _e('Find out your Twitter ID from <a href="http://id.twidder.info/" target="_blank">TwIDder</a> or <a href="http://idfromuser.org/" target="_blank">idfromuser.org</a> or <a href="http://www.idfromuser.com/" target="_blank">idfromuser.com</a>', TC_LOCAL_NAME); ?>
+				<td><input type="text" name="twitter_id" id="twitter_id" value="<?php echo $tc_settings['twitter_id']; ?>" size="40" maxlength="32" />
+				<br /><?php _e('Find out your Twitter ID from <a href="http://tweeterid.com/" target="_blank">TweeterID</a> or <a href="http://id.twidder.info/" target="_blank">TwIDder</a> or <a href="http://idfromuser.org/" target="_blank">idfromuser.org</a> or <a href="http://www.idfromuser.com/" target="_blank">idfromuser.com</a>', TC_LOCAL_NAME); ?>
 				</td>
 				</tr>
 				<tr style="vertical-align: top; background: #eee"><th scope="row" colspan="2"><?php _e('Select Style of TwitterCounter badge',TC_LOCAL_NAME); ?></th>
 				</tr>
 				<tr style="vertical-align: top;"><td colspan="2"><?php _e('If you have never used TwitterCounter before please visit <a href="http://twittercounter.com" target="_blank">http://twittercounter.com</a>, enter your Twitter username and hit <strong>Get Stats</strong>',TC_LOCAL_NAME); ?></td>
 				</tr>
-				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="avatar" id="style_6" <?php if ($tc_settings[style]=='avatar') echo 'checked="checked"' ?> /></th>
-				<td><label for="style_6"><script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=avatar"></script></label></td>
+				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="avatar" id="style_6" <?php if ($tc_settings['style']=='avatar') echo 'checked="checked"' ?> /></th>
+				<td><label for="style_6"><script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>&amp;style=avatar"></script></label></td>
 				</tr>
-				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="bird" id="style_5" <?php if ($tc_settings[style]=='bird') echo 'checked="checked"' ?> /></th>
-				<td><label for="style_5"><script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=bird"></script></label></td>
+				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="bird" id="style_5" <?php if ($tc_settings['style']=='bird') echo 'checked="checked"' ?> /></th>
+				<td><label for="style_5"><script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>&amp;style=bird"></script></label></td>
 				</tr>
-				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="custom" id="style_4" <?php if ($tc_settings[style]=='custom') echo 'checked="checked"' ?> /></th>
-				<td><label for="style_4"><script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>/<?php echo $tc_settings[tc_hr_color]; ?>/<?php echo $tc_settings[tc_bg_color]; ?>"></script></label>
+				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="custom" id="style_4" <?php if ($tc_settings['style']=='custom') echo 'checked="checked"' ?> /></th>
+				<td><label for="style_4"><script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>/<?php echo $tc_settings['tc_hr_color']; ?>/<?php echo $tc_settings['tc_bg_color']; ?>"></script></label>
 				  <br /><strong><?php _e('Choose settings for the above button:',TC_LOCAL_NAME); ?></strong><br />
-				<?php _e('Text Color',TC_LOCAL_NAME); ?>: #<input class="color" name="tc_hr_color" type="text" value="<?php echo $tc_settings[tc_hr_color]; ?>" size="15" maxlength="6" />
+				<?php _e('Text Color',TC_LOCAL_NAME); ?>: #<input class="color" name="tc_hr_color" type="text" value="<?php echo $tc_settings['tc_hr_color']; ?>" size="15" maxlength="6" />
 				  <br />
-				<?php _e('Background Color',TC_LOCAL_NAME); ?>: #<input class="color" name="tc_bg_color" type="text" value="<?php echo $tc_settings[tc_bg_color]; ?>" size="15" maxlength="6" />
+				<?php _e('Background Color',TC_LOCAL_NAME); ?>: #<input class="color" name="tc_bg_color" type="text" value="<?php echo $tc_settings['tc_bg_color']; ?>" size="15" maxlength="6" />
 				</td>
 				</tr>
-				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="script_only" id="style_7" <?php if ($tc_settings[style]=='script_only') echo 'checked="checked"' ?> /></th>
-				<td><script type="text/javascript" language="javascript" src="http://twittercounter.com/widget/index.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>"></script>
+				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="script_only" id="style_7" <?php if ($tc_settings['style']=='script_only') echo 'checked="checked"' ?> /></th>
+				<td><script type="text/javascript" language="javascript" src="http://twittercounter.com/widget/index.php?username=<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>"></script>
 				<br /><?php _e('This generates just the count wrapped with a div with <code>id="TwitterCounter"</code>. You can enter your own styles in the <strong>Custom Styles</strong> tab',TC_LOCAL_NAME); ?></td>
 				</tr>
 				<tr style="vertical-align: top; background: #eee"><th scope="row" colspan="2"><?php _e('Older buttons (count may not be accurate)',TC_LOCAL_NAME); ?></th>
 				</tr>
-				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="blank" id="style_0" <?php if ($tc_settings[style]=='') echo 'checked="checked"' ?> /></th>
-				<td><label for="style_0"><img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label></td>
+				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="blank" id="style_0" <?php if ($tc_settings['style']=='') echo 'checked="checked"' ?> /></th>
+				<td><label for="style_0"><img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>" alt="TwitterCounter for @<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>" width="88" height="26" /></label></td>
 				</tr>
-				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="black" id="style_1" <?php if ($tc_settings[style]=='black') echo 'checked="checked"' ?> /></th>
-				<td><label for="style_1"><img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=black" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label></td>
+				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="black" id="style_1" <?php if ($tc_settings['style']=='black') echo 'checked="checked"' ?> /></th>
+				<td><label for="style_1"><img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>&amp;style=black" alt="TwitterCounter for @<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>" width="88" height="26" /></label></td>
 				</tr>
-				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="white" id="style_2" <?php if ($tc_settings[style]=='white') echo 'checked="checked"' ?> /></th>
-				<td><label for="style_2"><img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=white" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label></td>
+				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="white" id="style_2" <?php if ($tc_settings['style']=='white') echo 'checked="checked"' ?> /></th>
+				<td><label for="style_2"><img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>&amp;style=white" alt="TwitterCounter for @<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>" width="88" height="26" /></label></td>
 				</tr>
-				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="blue" id="style_3" <?php if ($tc_settings[style]=='blue') echo 'checked="checked"' ?> /></th>
-				<td><label for="style_3"><img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>&amp;style=blue" alt="TwitterCounter for @<?php if ($tc_settings[username]=='') { echo 'ajaydsouza';} else { echo $tc_settings[username];} ?>" width="88" height="26" /></label></td>
+				<tr style="vertical-align: top;"><th scope="row"><input type="radio" name="style" value="blue" id="style_3" <?php if ($tc_settings['style']=='blue') echo 'checked="checked"' ?> /></th>
+				<td><label for="style_3"><img src="http://twittercounter.com/counter/index_nocache.php?username=<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>&amp;style=blue" alt="TwitterCounter for @<?php if ($tc_settings['username']=='') { echo 'ajaydsouza';} else { echo $tc_settings['username'];} ?>" width="88" height="26" /></label></td>
 				</tr>
 				</table>		
 			</div>
@@ -156,25 +156,25 @@ function tc_options() {
 					<tr style="vertical-align: top; background:#ccc"><td colspan="2"><?php _e('If you have never used TwitterCounter before please visit <a href="http://twittercounter.com" target="_blank">http://twittercounter.com</a>, enter your Twitter username and hit <strong>Get Stats</strong>',TC_LOCAL_NAME); ?></td>
 					</tr>
 					<tr style="vertical-align: top;"><th scope="row"><?php _e('User ID',TC_LOCAL_NAME); ?></th>
-					<td><input name="users_id" type="text" size="6" value="<?php echo $tc_settings[users_id]; ?>" />
+					<td><input name="users_id" type="text" size="6" value="<?php echo $tc_settings['users_id']; ?>" />
 						<br /><small><?php _e('This is the value of <code>users_id</code> in script code generated ',TC_LOCAL_NAME); ?>
 						<a href="http://twittercounter.com/pages/twitter-widget" target="_blank">here</a></small>
 					</td>
 					</tr>
 					<tr style="vertical-align: top;"><th scope="row"><?php _e('Text and links',TC_LOCAL_NAME); ?></th>
-					<td>#<input class="color" name="a_color" type="text" value="<?php echo $tc_settings[a_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for usernames and hyperlinks',TC_LOCAL_NAME); ?></small></td>
+					<td>#<input class="color" name="a_color" type="text" value="<?php echo $tc_settings['a_color']; ?>" size="15" maxlength="6" /> <small><?php _e('used for usernames and hyperlinks',TC_LOCAL_NAME); ?></small></td>
 					</tr>
 					<tr style="vertical-align: top;"><th scope="row"><?php _e('Header horizontal rules',TC_LOCAL_NAME); ?></th>
-					<td>#<input class="color" name="hr_color" type="text" value="<?php echo $tc_settings[hr_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for horizontal rulers and text',TC_LOCAL_NAME); ?></small></td>
+					<td>#<input class="color" name="hr_color" type="text" value="<?php echo $tc_settings['hr_color']; ?>" size="15" maxlength="6" /> <small><?php _e('used for horizontal rulers and text',TC_LOCAL_NAME); ?></small></td>
 					</tr>
 					<tr style="vertical-align: top;"><th scope="row"><?php _e('Background Color',TC_LOCAL_NAME); ?></th>
-					<td>#<input class="color" name="bg_color" type="text" value="<?php echo $tc_settings[bg_color]; ?>" size="15" maxlength="6" /> <small><?php _e('used for some (not all) backgrounds',TC_LOCAL_NAME); ?></small></td>
+					<td>#<input class="color" name="bg_color" type="text" value="<?php echo $tc_settings['bg_color']; ?>" size="15" maxlength="6" /> <small><?php _e('used for some (not all) backgrounds',TC_LOCAL_NAME); ?></small></td>
 					</tr>
 					<tr style="vertical-align: top;"><th scope="row"><?php _e('Number of rows',TC_LOCAL_NAME); ?></th>
-					<td><input name="nr_show" type="text" value="<?php echo $tc_settings[nr_show]; ?>" size="6" maxlength="2" /> <small><?php _e('How many Twitter users do you want to show? Min 6',TC_LOCAL_NAME); ?></small></td>
+					<td><input name="nr_show" type="text" value="<?php echo $tc_settings['nr_show']; ?>" size="6" maxlength="2" /> <small><?php _e('How many Twitter users do you want to show? Min 6',TC_LOCAL_NAME); ?></small></td>
 					</tr>
 					<tr style="vertical-align: top;"><th scope="row"><?php _e('Width',TC_LOCAL_NAME); ?></th>
-					<td><input name="width" type="text" value="<?php echo $tc_settings[width]; ?>" size="6" maxlength="3" />px <small><?php _e('How wide should the widget be? Min 180 pixels',TC_LOCAL_NAME); ?></small></td>
+					<td><input name="width" type="text" value="<?php echo $tc_settings['width']; ?>" size="6" maxlength="3" />px <small><?php _e('How wide should the widget be? Min 180 pixels',TC_LOCAL_NAME); ?></small></td>
 					</tr>
 					</table>
 				</td>
@@ -188,16 +188,17 @@ function tc_options() {
 				<table class="form-table">
 				<tr style="vertical-align: top; "><th scope="row" colspan="2"><?php _e('Custom CSS to add to header:',ATA_LOCAL_NAME); ?></th>
 				</tr>
-				<tr style="vertical-align: top; "><td scope="row" colspan="2"><textarea name="custom_CSS" id="custom_CSS" rows="15" cols="80"><?php echo stripslashes($tc_settings[custom_CSS]); ?></textarea>
+				<tr style="vertical-align: top; "><td scope="row" colspan="2"><textarea name="custom_CSS" id="custom_CSS" rows="15" cols="80"><?php echo stripslashes($tc_settings['custom_CSS']); ?></textarea>
 				<br /><em><?php _e('Do not include <code>style</code> tags. Check out the <a href="http://wordpress.org/extend/plugins/twittercounter/faq/">FAQ</a> for available CSS classes to style.',ATA_LOCAL_NAME); ?></em></td></tr>
 				</table>		
 			</div>
 		</div>
 		<p>
 		  <input type="submit" name="tc_save" id="tc_save" value="Save Options" style="border:#00CC00 1px solid" />
-		  <input name="tc_default" type="submit" id="tc_default" value="Default Options" style="border:#FF0000 1px solid" onclick="if (!confirm('<?php _e('Do you want to set options to Default? If you don\'t have a copy of the username, please hit Cancel and copy it first.',TC_LOCAL_NAME); ?>')) return false;" />
+		  <input name="tc_default" type="submit" id="tc_default" value="Default Options" style="border:#FF0000 1px solid" onclick="if (!confirm('<?php _e('Do you want to set options to Default?',TC_LOCAL_NAME); ?>')) return false;" />
 		</p>
 		</fieldset>
+		<?php wp_nonce_field('tc-plugin'); ?>
 	  </form>
 	  </div>
 
@@ -210,21 +211,8 @@ function tc_options() {
 }
 
 function tc_adminmenu() {
-	if (function_exists('current_user_can')) {
-		// In WordPress 2.x
-		if (current_user_can('manage_options')) {
-			$tc_is_admin = true;
-		}
-	} else {
-		// In WordPress 1.x
-		global $users_id;
-		if (user_can_edit_user($users_id, 0)) {
-			$tc_is_admin = true;
-		}
-	}
-
-	if ((function_exists('add_options_page'))&&($tc_is_admin)) {
-		$plugin_page = add_options_page(__("TwitterCounter"), __("TwitterCounter"), 9, 'tc_options', 'tc_options');
+	if (function_exists('add_options_page')) {
+		$plugin_page = add_options_page(__("TwitterCounter", TC_LOCAL_NAME), __("TwitterCounter", TC_LOCAL_NAME), 'manage_options', 'tc_options', 'tc_options');
 		add_action( 'admin_head-'. $plugin_page, 'tc_adminhead' );
 	}
 }

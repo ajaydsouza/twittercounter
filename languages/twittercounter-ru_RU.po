@@ -2,16 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TwitterCounter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 01:54+0100\n"
+"POT-Creation-Date: 2013-07-21 22:27-0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ajay D'Souza <me@ajaydsouza.com>\n"
 "Language-Team: Ajay D'Souza <me@ajaydsouza.com>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: English\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin.inc.php:31
@@ -56,8 +57,7 @@ msgstr ""
 msgid "Ajay's blog"
 msgstr ""
 
-#: admin.inc.php:77
-#: ald-twittercounter.php:384
+#: admin.inc.php:77 ald-twittercounter.php:395
 msgid "Support"
 msgstr "Техподдержка"
 
@@ -84,16 +84,23 @@ msgid "Twitter ID:"
 msgstr "Имя пользователя Twitter:"
 
 #: admin.inc.php:105
-msgid "Find out your Twitter ID from <a href=\"http://id.twidder.info/\" target=\"_blank\">TwIDder</a> or <a href=\"http://idfromuser.org/\" target=\"_blank\">idfromuser.org</a> or <a href=\"http://www.idfromuser.com/\" target=\"_blank\">idfromuser.com</a>"
+msgid ""
+"Find out your Twitter ID from <a href=\"http://tweeterid.com/\" target="
+"\"_blank\">TweeterID</a> or <a href=\"http://id.twidder.info/\" target="
+"\"_blank\">TwIDder</a> or <a href=\"http://idfromuser.org/\" target=\"_blank"
+"\">idfromuser.org</a> or <a href=\"http://www.idfromuser.com/\" target="
+"\"_blank\">idfromuser.com</a>"
 msgstr ""
 
 #: admin.inc.php:108
 msgid "Select Style of TwitterCounter badge"
 msgstr "Выберите стиль значка TwitterCounter"
 
-#: admin.inc.php:110
-#: admin.inc.php:156
-msgid "If you have never used TwitterCounter before please visit <a href=\"http://twittercounter.com\" target=\"_blank\">http://twittercounter.com</a>, enter your Twitter username and hit <strong>Get Stats</strong>"
+#: admin.inc.php:110 admin.inc.php:156
+msgid ""
+"If you have never used TwitterCounter before please visit <a href=\"http://"
+"twittercounter.com\" target=\"_blank\">http://twittercounter.com</a>, enter "
+"your Twitter username and hit <strong>Get Stats</strong>"
 msgstr ""
 
 #: admin.inc.php:120
@@ -105,22 +112,22 @@ msgstr "Выберите настройки ниже:"
 msgid "Text Color"
 msgstr "Цвет текста"
 
-#: admin.inc.php:123
-#: admin.inc.php:170
-#: ald-twittercounter.php:314
+#: admin.inc.php:123 admin.inc.php:170 ald-twittercounter.php:314
 msgid "Background Color"
 msgstr "Цвет бэкграунда"
 
 #: admin.inc.php:128
-msgid "This generates just the count wrapped with a div with <code>id=\"TwitterCounter\"</code>. You can enter your own styles in the <strong>Custom Styles</strong> tab"
+msgid ""
+"This generates just the count wrapped with a div with <code>id="
+"\"TwitterCounter\"</code>. You can enter your own styles in the "
+"<strong>Custom Styles</strong> tab"
 msgstr ""
 
 #: admin.inc.php:130
 msgid "Older buttons (count may not be accurate)"
 msgstr ""
 
-#: admin.inc.php:148
-#: ald-twittercounter.php:271
+#: admin.inc.php:148 ald-twittercounter.php:271
 msgid "Twitter Widget"
 msgstr ""
 
@@ -140,10 +147,11 @@ msgstr "ID пользователя"
 #: admin.inc.php:160
 #, fuzzy
 msgid "This is the value of <code>users_id</code> in script code generated "
-msgstr "Создается автоматически с вашего имени пользователя. Это значение <code> users_id </ код> в генерируемый скрипт код"
+msgstr ""
+"Создается автоматически с вашего имени пользователя. Это значение <code> "
+"users_id </ код> в генерируемый скрипт код"
 
-#: admin.inc.php:164
-#: ald-twittercounter.php:308
+#: admin.inc.php:164 ald-twittercounter.php:308
 msgid "Text and links"
 msgstr ""
 
@@ -151,8 +159,7 @@ msgstr ""
 msgid "used for usernames and hyperlinks"
 msgstr "Использовать для имен пользователя и гиперссылок"
 
-#: admin.inc.php:167
-#: ald-twittercounter.php:302
+#: admin.inc.php:167 ald-twittercounter.php:302
 #, fuzzy
 msgid "Header horizontal rules"
 msgstr "используется для горизонтальной линейки и текста"
@@ -165,8 +172,7 @@ msgstr "используется для горизонтальной линей�
 msgid "used for some (not all) backgrounds"
 msgstr "используется для некоторых (не всех) фонов"
 
-#: admin.inc.php:173
-#: ald-twittercounter.php:296
+#: admin.inc.php:173 ald-twittercounter.php:296
 msgid "Number of rows"
 msgstr "Число колонок"
 
@@ -174,8 +180,7 @@ msgstr "Число колонок"
 msgid "How many Twitter users do you want to show? Min 6"
 msgstr "Сколько Twitter пользователей вы хотите показать? Мин 6"
 
-#: admin.inc.php:176
-#: ald-twittercounter.php:290
+#: admin.inc.php:176 ald-twittercounter.php:290
 msgid "Width"
 msgstr "Ширина"
 
@@ -192,30 +197,34 @@ msgid "Custom CSS to add to header:"
 msgstr ""
 
 #: admin.inc.php:192
-msgid "Do not include <code>style</code> tags. Check out the <a href=\"http://wordpress.org/extend/plugins/twittercounter/faq/\">FAQ</a> for available CSS classes to style."
+msgid ""
+"Do not include <code>style</code> tags. Check out the <a href=\"http://"
+"wordpress.org/extend/plugins/twittercounter/faq/\">FAQ</a> for available CSS "
+"classes to style."
 msgstr ""
 
 #: admin.inc.php:198
-msgid "Do you want to set options to Default? If you don't have a copy of the username, please hit Cancel and copy it first."
-msgstr "Хотите ли вы задать параметры по умолчанию? Если у вас нет копии исени пользователя, пожалуйста, нажмите Отмена и скопируйте его в первую очередь."
+msgid "Do you want to set options to Default?"
+msgstr ""
 
-#: admin.inc.php:227
-#: ald-twittercounter.php:213
+#: admin.inc.php:215 ald-twittercounter.php:213
 msgid "TwitterCounter"
 msgstr "TwitterCounter"
 
-#: ald-twittercounter.php:45
-#: ald-twittercounter.php:87
-msgid "Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username"
-msgstr "Пожалуйста посетите WP-Admin &gt; Настройки &gt; TwitterCounter и введите ваше имя пользователя Twitter"
+#: ald-twittercounter.php:45 ald-twittercounter.php:87
+msgid ""
+"Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your "
+"Twitter username"
+msgstr ""
+"Пожалуйста посетите WP-Admin &gt; Настройки &gt; TwitterCounter и введите "
+"ваше имя пользователя Twitter"
 
 #: ald-twittercounter.php:212
 #, fuzzy
 msgid "Display TwitterCounter"
 msgstr "TwitterCounter"
 
-#: ald-twittercounter.php:221
-#: ald-twittercounter.php:283
+#: ald-twittercounter.php:221 ald-twittercounter.php:283
 msgid "Title"
 msgstr ""
 
@@ -232,13 +241,21 @@ msgstr "Выбор параметров для Twitter Remote"
 msgid "Leave the below options blank to use the default settings"
 msgstr ""
 
-#: ald-twittercounter.php:383
+#: ald-twittercounter.php:381
 msgid "Settings"
 msgstr "Настройки"
 
-#: ald-twittercounter.php:385
+#: ald-twittercounter.php:396
 msgid "Donate"
 msgstr "Добровольное пожертвование"
+
+#~ msgid ""
+#~ "Do you want to set options to Default? If you don't have a copy of the "
+#~ "username, please hit Cancel and copy it first."
+#~ msgstr ""
+#~ "Хотите ли вы задать параметры по умолчанию? Если у вас нет копии исени "
+#~ "пользователя, пожалуйста, нажмите Отмена и скопируйте его в первую "
+#~ "очередь."
 
 #~ msgid "Options:"
 #~ msgstr "Опции:"

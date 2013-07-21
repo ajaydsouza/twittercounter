@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TwitterCounter
-Version:     1.6
+Version:     1.6.1
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
 Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 Author:      Ajay D'Souza
@@ -38,23 +38,23 @@ $twittercounter_url = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE_
 function ald_tc($style='avatar')
 {
 	$tc_settings = tc_read_options();
-	if (empty($style)) $style = $tc_settings[style];
+	if (empty($style)) $style = $tc_settings['style'];
 	
-	if($tc_settings[username]=='')
+	if($tc_settings['username']=='')
 	{
 		$str = __('Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username',TC_LOCAL_NAME);
 	}
 	else
 	{
 		if ($style=='custom') {
-			$str = '<script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/'.$tc_settings[username].'/'.$tc_settings[tc_hr_color].'/'.$tc_settings[tc_bg_color].'"></script>';
+			$str = '<script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/'.$tc_settings['username'].'/'.$tc_settings['tc_hr_color'].'/'.$tc_settings['tc_bg_color'].'"></script>';
 		} elseif ($style=='script_only') {
 			$str = '<!-- Start of Twitter Counter Code -->';
-			$str .= '<script type="text/javascript" language="javascript" src="http://twittercounter.com/widget/index.php?username='.$tc_settings[username].'"></script><noscript><a href="http://twittercounter.com/'.$tc_settings[username].'">@'.$tc_settings[username].' on Twitter Counter</a></noscript>';
+			$str .= '<script type="text/javascript" language="javascript" src="http://twittercounter.com/widget/index.php?username='.$tc_settings['username'].'"></script><noscript><a href="http://twittercounter.com/'.$tc_settings['username'].'">@'.$tc_settings['username'].' on Twitter Counter</a></noscript>';
 			$str .= '<!-- End of Twitter Counter Code --> ';
 		} else {
 			$str = '<script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/?username=';
-			$str .= $tc_settings[username];
+			$str .= $tc_settings['username'];
 			if($style!='')
 			{
 				$str .= '&amp;style=';
@@ -73,26 +73,26 @@ function echo_tc_function() {
 }
 
 /* Function for Twitter Widget */
-//function ald_tr($width='180', $nr_show='6', $hr_color='709CB2', $a_color='709CB2', $bg_color='ffffff')
-function ald_tr($width, $nr_show, $hr_color, $a_color, $bg_color)
+function ald_tr($width='180', $nr_show='6', $hr_color='709CB2', $a_color='709CB2', $bg_color='ffffff')
+//function ald_tr($width, $nr_show, $hr_color, $a_color, $bg_color)
 {
 	$tc_settings = tc_read_options();
-	if (empty($width)) $style = $tc_settings[width];
-	if (empty($nr_show)) $nr_show = $tc_settings[nr_show];
-	if (empty($hr_color)) $hr_color = $tc_settings[hr_color];
-	if (empty($a_color)) $a_color = $tc_settings[a_color];
-	if (empty($bg_color)) $bg_color = $tc_settings[bg_color];
+	if (empty($width)) $style = $tc_settings['width'];
+	if (empty($nr_show)) $nr_show = $tc_settings['nr_show'];
+	if (empty($hr_color)) $hr_color = $tc_settings['hr_color'];
+	if (empty($a_color)) $a_color = $tc_settings['a_color'];
+	if (empty($bg_color)) $bg_color = $tc_settings['bg_color'];
 	
-	if ($tc_settings[username]=='') {
+	if ($tc_settings['username']=='') {
 		$str = __('Please visit WP-Admin &gt; Settings &gt; TwitterCounter and enter your Twitter username',TC_LOCAL_NAME);
 	}
-	elseif ($tc_settings[twitter_id]!='') {
-		$str = "<script type=\"text/javascript\" id=\"tcws_".$tc_settings[twitter_id]."\">(function(){function async_load(){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src='http://twittercounter.com/remote/?v=2&twitter_id=".$tc_settings[twitter_id]."&users_id=".$tc_settings[users_id]."&width=".$width."&nr_show=".$nr_show."&hr_color=".$hr_color."&a_color=".$a_color."&bg_color=".$bg_color."';x=document.getElementById('tcws_".$tc_settings[twitter_id]."'); x.parentNode.insertBefore(s,x);}if(window.attachEvent){window.attachEvent('onload',async_load);}else{window.addEventListener('load',async_load,false);}})(); </script><noscript><a href=\"http://twittercounter.com/".$tc_settings[username]."\">@".$tc_settings[twitter_id]." on TwitterCounter.com</a></noscript><div id=\"tcw_".$tc_settings[twitter_id]."\"></div>";
+	elseif ($tc_settings['twitter_id']!='') {
+		$str = "<script type=\"text/javascript\" id=\"tcws_".$tc_settings['twitter_id']."\">(function(){function async_load(){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src='http://twittercounter.com/remote/?v=2&twitter_id=".$tc_settings['twitter_id']."&users_id=".$tc_settings['users_id']."&width=".$width."&nr_show=".$nr_show."&hr_color=".$hr_color."&a_color=".$a_color."&bg_color=".$bg_color."';x=document.getElementById('tcws_".$tc_settings['twitter_id']."'); x.parentNode.insertBefore(s,x);}if(window.attachEvent){window.attachEvent('onload',async_load);}else{window.addEventListener('load',async_load,false);}})(); </script><noscript><a href=\"http://twittercounter.com/".$tc_settings['username']."\">@".$tc_settings['twitter_id']." on TwitterCounter.com</a></noscript><div id=\"tcw_".$tc_settings['twitter_id']."\"></div>";
 	} else {
 		$str = '<script type="text/javascript" language="javascript" src="http://twittercounter.com/remote/?username_owner=';
-		$str .= $tc_settings[username];
+		$str .= $tc_settings['username'];
 		$str .= '&amp;users_id=';
-		$str .= $tc_settings[users_id];
+		$str .= $tc_settings['users_id'];
 		$str .= '&amp;width=';
 		$str .= $width;
 		$str .= '&amp;nr_show=';
@@ -106,7 +106,7 @@ function ald_tr($width, $nr_show, $hr_color, $a_color, $bg_color)
 		$str .= '"></script>';
 	}
 	
-	$str .= '<br /><small><strong style="color:#'.$hr_color.'">Powered by </strong> <a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/" style="font-weight:bold;color:#'.$a_color.'">TwitterCounter WordPress Plugin</a></small>';
+	$str .= '<br /><small><strong style="color:#'.$hr_color.'">Powered by </strong> <a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/" style="font-weight:bold;color:#'.$a_color.'" rel="nofollow">TwitterCounter WordPress Plugin</a></small>';
 	return $str;
 }
 // Add an action called echo_twitter_remote so that it can be called using do_action('echo_twitter_remote');
@@ -121,10 +121,10 @@ function tc_header() {
 	global $wpdb, $post, $single;
 
 	$tc_settings = tc_read_options();
-	$tc_custom_CSS = stripslashes($tc_settings[custom_CSS]);
+	$tc_custom_CSS = stripslashes($tc_settings['custom_CSS']);
 	
 	// Add CSS to header 
-	if (($tc_custom_CSS != '')&&($tc_settings[username]!='')&&($tc_settings[style]=='script_only')) {
+	if (($tc_custom_CSS != '')&&($tc_settings['username']!='')&&($tc_settings['style']=='script_only')) {
 			echo '<style type="text/css">'.$tc_custom_CSS.'</style>';
 	}
 }
@@ -251,7 +251,7 @@ class WidgetTC extends WP_Widget
 
 		$title = apply_filters('widget_title', $instance['title']);
 		$style = $instance['style'];
-		if (empty($style)) $style = $tc_settings[style];
+		if (empty($style)) $style = $tc_settings['style'];
 		
 		echo $before_widget;
 		echo $before_title . $title . $after_title;
@@ -336,22 +336,22 @@ class WidgetTW extends WP_Widget
 
 		$title = apply_filters('widget_title', $instance['title']);
 		$style = $instance['style'];
-		if (empty($style)) $style = $tc_settings[style];
+		if (empty($style)) $style = $tc_settings['style'];
 		
 		$width = $instance['width'];
-		if (empty($width)) $width = $tc_settings[width];
+		if (empty($width)) $width = $tc_settings['width'];
 
 		$nr_show = $instance['nr_show'];
-		if (empty($nr_show)) $nr_show = $tc_settings[nr_show];
+		if (empty($nr_show)) $nr_show = $tc_settings['nr_show'];
 		
 		$hr_color = $instance['hr_color'];
-		if (empty($hr_color)) $hr_color = $tc_settings[hr_color];
+		if (empty($hr_color)) $hr_color = $tc_settings['hr_color'];
 		
 		$a_color = $instance['a_color'];
-		if (empty($a_color)) $a_color = $tc_settings[a_color];
+		if (empty($a_color)) $a_color = $tc_settings['a_color'];
 		
 		$bg_color = $instance['bg_color'];
-		if (empty($bg_color)) $bg_color = $tc_settings[bg_color];
+		if (empty($bg_color)) $bg_color = $tc_settings['bg_color'];
 
 		echo $before_widget;
 		echo $before_title . $title . $after_title;
@@ -374,13 +374,24 @@ add_action('init', 'init_ald_tc', 1);
 if (is_admin() || strstr($_SERVER['PHP_SELF'], 'wp-admin/')) {
 	require_once(ALD_TC_DIR . "/admin.inc.php");
 
+	function tc_plugin_actions_links( $links ) {
+	
+		return array_merge(
+			array(
+				'settings' => '<a href="' . admin_url( 'options-general.php?page=tc_options' ) . '">' . __('Settings', TC_LOCAL_NAME ) . '</a>'
+			),
+			$links
+		);
+	
+	}
+	add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'tc_plugin_actions_links' );
+
 	// Add meta links
 	function tc_plugin_actions( $links, $file ) {
 		$plugin = plugin_basename(__FILE__);
 	 
 		// create link
 		if ($file == $plugin) {
-			$links[] = '<a href="' . admin_url( 'options-general.php?page=tc_options' ) . '">' . __('Settings', TC_LOCAL_NAME ) . '</a>';
 			$links[] = '<a href="http://ajaydsouza.com/support/">' . __('Support', TC_LOCAL_NAME ) . '</a>';
 			$links[] = '<a href="http://ajaydsouza.com/donate/">' . __('Donate', TC_LOCAL_NAME ) . '</a>';
 		}
