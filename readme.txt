@@ -1,6 +1,6 @@
 === TwitterCounter ===
-Tags: TwitterCounter, Twitter, Counter, Twitter Widget, badge, followers
-Contributors: Ajay D'Souza
+Tags: TwitterCounter, Twitter, Counter, Twitter Widget
+Contributors: Ajay
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
 Requires at least: 3.0
@@ -27,10 +27,14 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 == Upgrade Notice ==
 
-= 1.6.1 =
-* Fixed: PHP Notices; Security upgrade
+= 1.6.2 =
+* Fixed: Notices when WP_DEBUG is TRUE; Added: Latvian translation
 
 == Changelog ==
+
+= 1.6.2 =
+* Fixed: Notices when WP_DEBUG is TRUE
+* Added: Latvian translation (Thanks <a href="http://enyko.de/">Johannes</a>)
 
 = 1.6.1 =
 * Fixed: PHP Notices
@@ -84,11 +88,15 @@ Manually add where you would like to display the badge / remote or use the WordP
 6. Add `<?php do_action('echo_twitter_remote'); ?>` to your theme file where you want to display the counter or use the WordPress widget
 
 
+
+
 == Screenshots ==
 
 1. TwitterCounter options in WP-Admin
 2. Twitter Widget options in WP-Admin
 3. Custom Styles options in WP-Admin
+4. TwitterCounter Widget settings
+5. Twitter Widget widget settings
 
 
 == Frequently Asked Questions ==

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TwitterCounter
-Version:     1.6.1
+Version:     1.6.2
 Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
 Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 Author:      Ajay D'Souza
@@ -35,7 +35,7 @@ $twittercounter_url = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE_
 /*********************************************************************
 *				Main Function (Do not edit)							*
 ********************************************************************/
-function ald_tc($style='avatar')
+function ald_tc($style=false)
 {
 	$tc_settings = tc_read_options();
 	if (empty($style)) $style = $tc_settings['style'];
@@ -67,10 +67,10 @@ function ald_tc($style='avatar')
 	return $str;
 }
 // Add an action called echo_tc so that it can be called using do_action('echo_tc');
-add_action('echo_tc', 'echo_tc_function');
 function echo_tc_function() {
 	echo ald_tc();
 }
+add_action('echo_tc', 'echo_tc_function');
 
 /* Function for Twitter Widget */
 function ald_tr($width='180', $nr_show='6', $hr_color='709CB2', $a_color='709CB2', $bg_color='ffffff')
@@ -110,13 +110,12 @@ function ald_tr($width='180', $nr_show='6', $hr_color='709CB2', $a_color='709CB2
 	return $str;
 }
 // Add an action called echo_twitter_remote so that it can be called using do_action('echo_twitter_remote');
-add_action('echo_twitter_remote', 'echo_tr_function');
 function echo_tr_function() {
 	echo ald_tr();
 }
+add_action('echo_twitter_remote', 'echo_tr_function');
 
 // Header function
-add_action('wp_head','tc_header');
 function tc_header() {
 	global $wpdb, $post, $single;
 
@@ -128,6 +127,7 @@ function tc_header() {
 			echo '<style type="text/css">'.$tc_custom_CSS.'</style>';
 	}
 }
+add_action('wp_head','tc_header');
 	
 // Default Options
 function tc_default_options() {
@@ -213,12 +213,12 @@ class WidgetTC extends WP_Widget
 		$this->WP_Widget('widget_twittercounter',__('TwitterCounter',TC_LOCAL_NAME), $widget_ops);
 	}
 	function form($instance) {
-		$title = esc_attr($instance['title']);
-		$style = esc_attr($instance['style']);
+		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
+		$style = isset($instance['style']) ? esc_attr($instance['style']) : 'avatar';
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id('title'); ?>">
-		<?php _e('Title', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /> 
+		<?php _e('Title', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /> 
 		</label>
 		</p>
 		<p>
@@ -271,47 +271,47 @@ class WidgetTW extends WP_Widget
 		$this->WP_Widget('widget_twitterwidget',__('Twitter Widget',TC_LOCAL_NAME), $widget_ops);
 	}
 	function form($instance) {
-		$title = esc_attr($instance['title']);
-		$width = esc_attr($instance['width']);
-		$nr_show = esc_attr($instance['nr_show']);
-		$hr_color = esc_attr($instance['hr_color']);
-		$a_color = esc_attr($instance['a_color']);
-		$bg_color = esc_attr($instance['bg_color']);
+		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
+		$width = isset($instance['width']) ? esc_attr($instance['width']) : '';
+		$nr_show = isset($instance['nr_show']) ? esc_attr($instance['nr_show']) : '';
+		$hr_color = isset($instance['hr_color']) ? esc_attr($instance['hr_color']) : '';
+		$a_color = isset($instance['a_color']) ? esc_attr($instance['a_color']) : '';
+		$bg_color = isset($instance['bg_color']) ? esc_attr($instance['bg_color']) : '';
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id('title'); ?>">
-		<?php _e('Title', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /> 
+		<?php _e('Title', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /> 
 		</label>
 		</p>
 
 		<p><?php _e('Leave the below options blank to use the default settings', TC_LOCAL_NAME); ?></p>
 		<p>
 		<label for="<?php echo $this->get_field_id('width'); ?>">
-		<?php _e('Width', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" type="text" value="<?php echo attribute_escape($width); ?>" /> 
+		<?php _e('Width', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" type="text" value="<?php echo esc_attr($width); ?>" /> 
 		</label>
 		</p>
 
 		<p>
 		<label for="<?php echo $this->get_field_id('nr_show'); ?>">
-		<?php _e('Number of rows', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('nr_show'); ?>" name="<?php echo $this->get_field_name('nr_show'); ?>" type="text" value="<?php echo attribute_escape($nr_show); ?>" /> 
+		<?php _e('Number of rows', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('nr_show'); ?>" name="<?php echo $this->get_field_name('nr_show'); ?>" type="text" value="<?php echo esc_attr($nr_show); ?>" /> 
 		</label>
 		</p>
 
 		<p>
 		<label for="<?php echo $this->get_field_id('hr_color'); ?>">
-		<?php _e('Header horizontal rules', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('hr_color'); ?>" name="<?php echo $this->get_field_name('hr_color'); ?>" type="text" value="<?php echo attribute_escape($hr_color); ?>" /> 
+		<?php _e('Header horizontal rules', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('hr_color'); ?>" name="<?php echo $this->get_field_name('hr_color'); ?>" type="text" value="<?php echo esc_attr($hr_color); ?>" /> 
 		</label>
 		</p>
 
 		<p>
 		<label for="<?php echo $this->get_field_id('a_color'); ?>">
-		<?php _e('Text and links', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('a_color'); ?>" name="<?php echo $this->get_field_name('a_color'); ?>" type="text" value="<?php echo attribute_escape($a_color); ?>" /> 
+		<?php _e('Text and links', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('a_color'); ?>" name="<?php echo $this->get_field_name('a_color'); ?>" type="text" value="<?php echo esc_attr($a_color); ?>" /> 
 		</label>
 		</p>
 
 		<p>
 		<label for="<?php echo $this->get_field_id('bg_color'); ?>">
-		<?php _e('Background Color', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('bg_color'); ?>" name="<?php echo $this->get_field_name('bg_color'); ?>" type="text" value="<?php echo attribute_escape($bg_color); ?>" /> 
+		<?php _e('Background Color', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('bg_color'); ?>" name="<?php echo $this->get_field_name('bg_color'); ?>" type="text" value="<?php echo esc_attr($bg_color); ?>" /> 
 		</label>
 		</p>
 

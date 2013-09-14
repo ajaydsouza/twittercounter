@@ -22,8 +22,8 @@ function tc_options() {
 		$tc_settings['tc_hr_color'] = $_POST['tc_hr_color'];
 		$tc_settings['tc_bg_color'] = $_POST['tc_bg_color'];
 		$tc_settings['nr_show'] = $_POST['nr_show'];
-		$tc_settings['width'] = $_POST['width'];
-		$tc_settings['custom_CSS'] = $_POST['custom_CSS'];
+		$tc_settings['width'] = intval($_POST['width']);
+		$tc_settings['custom_CSS'] = wp_kses_post($_POST['custom_CSS']);
 		
 		update_option('ald_tc_settings', $tc_settings);
 
@@ -69,22 +69,25 @@ function tc_options() {
 			</div>
 		</div>
 		<div class="side-widget">
-		<span class="title"><?php _e('Quick links') ?></span>				
-		<ul>
-			<li><a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/"><?php _e('TwitterCounter ');_e('plugin page',TC_LOCAL_NAME) ?></a></li>
-			<li><a href="http://ajaydsouza.com/wordpress/plugins/"><?php _e('Other plugins',TC_LOCAL_NAME) ?></a></li>
-			<li><a href="http://ajaydsouza.com/"><?php _e('Ajay\'s blog',TC_LOCAL_NAME) ?></a></li>
-			<li><a href="http://ajaydsouza.com/support/"><?php _e('Support',TC_LOCAL_NAME) ?></a></li>
-			<li><a href="http://twitter.com/ajaydsouza"><?php _e('Follow @ajaydsouza on Twitter',TC_LOCAL_NAME) ?></a></li>
-		</ul>
+			<span class="title"><?php _e('Follow us',TPTN_LOCAL_NAME) ?></span>				
+			<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fajaydsouzacom&amp;width=292&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=true&amp;appId=113175385243" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
+			<div style="text-align:center"><a href="https://twitter.com/ajaydsouza" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @ajaydsouza</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
 		</div>
 		<div class="side-widget">
-		<span class="title"><?php _e('Recent developments',TC_LOCAL_NAME) ?></span>				
-		<?php require_once(ABSPATH . WPINC . '/class-simplepie.php'); wp_widget_rss_output('http://ajaydsouza.com/archives/category/wordpress/plugins/feed/', array('items' => 5, 'show_author' => 0, 'show_date' => 1));
-		?>
+			<span class="title"><?php _e('Quick links', TC_LOCAL_NAME) ?></span>				
+			<ul>
+				<li><a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/"><?php _e('TwitterCounter ');_e('plugin page',TC_LOCAL_NAME) ?></a></li>
+				<li><a href="http://ajaydsouza.com/wordpress/plugins/"><?php _e('Other plugins',TC_LOCAL_NAME) ?></a></li>
+				<li><a href="http://ajaydsouza.com/"><?php _e('Ajay\'s blog',TC_LOCAL_NAME) ?></a></li>
+				<li><a href="http://ajaydsouza.com/support/"><?php _e('Support',TC_LOCAL_NAME) ?></a></li>
+			</ul>
 		</div>
 		<div class="side-widget">
-		<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fajaydsouzacom&amp;width=292&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=true&amp;appId=113175385243" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
+			<span class="title"><?php _e('Recent developments',TC_LOCAL_NAME) ?></span>				
+			<?php require_once(ABSPATH . WPINC . '/class-simplepie.php'); wp_widget_rss_output('http://ajaydsouza.com/archives/category/wordpress/plugins/feed/', array('items' => 5, 'show_author' => 0, 'show_date' => 1));
+			?>
 		</div>
 	  </div>
 
