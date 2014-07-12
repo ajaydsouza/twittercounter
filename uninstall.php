@@ -1,6 +1,14 @@
 <?php
-if ( !defined('ABSPATH') && !defined('WP_UNINSTALL_PLUGIN') ) {
-    exit();
+/**
+ * Fired when the plugin is uninstalled
+ *
+ * @package TwitterCounter
+ */
+
+// If uninstall not called from WordPress, then exit
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+	exit();
 }
-	delete_option('ald_tc_settings');
+
+delete_option('ald_tc_settings');
 ?>
