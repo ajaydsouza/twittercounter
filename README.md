@@ -45,7 +45,7 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 ## Frequently Asked Questions
 
-If your question isn't listed here, please post a comment at the [WordPress.org support forum](http://wordpress.org/support/plugin/twittercounter). I monitor the forums on an ongoing basis. If you're looking for more advanced support, please see [details here](http://wordpress.org/support/plugin/twittercounter).
+If your question isn't listed here, please post a comment at the [WordPress.org support forum](http://wordpress.org/support/plugin/twittercounter). I monitor the forums on an ongoing basis. If you're looking for more advanced support, please see [details here](http://ajaydsouza.com/support/).
 
 ### How can I customise the output?
 

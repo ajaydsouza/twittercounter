@@ -91,9 +91,7 @@ Check ChangeLog for other changes
 
 5. Add `<?php do_action('echo_tc'); ?>` to your theme file where you want to display the counter or use the WordPress widget
 
-6. Add `<?php do_action('echo_twitter_remote'); ?>` to your theme file where you want to display the counter or use the WordPress widget
-
-
+6. Add `<?php do_action('echo_twitter_widget'); ?>` to your theme file where you want to display the counter or use the WordPress widget
 
 
 == Screenshots ==
@@ -107,7 +105,7 @@ Check ChangeLog for other changes
 
 == Frequently Asked Questions ==
 
-If your question isn't listed here, please post a comment at the <a href="http://wordpress.org/support/plugin/twittercounter">WordPress.org support forum</a>. I monitor the forums on an ongoing basis. If you're looking for more advanced support, please see <a href="http://ajaydsouza.com/support/">details here</a>.
+If your question isn't listed here, please post a comment at the <a href="http://wordpress.org/support/plugin/twittercounter">WordPress.org support forum</a>. I monitor the forums on an ongoing basis. If you're looking for more advanced _paid_ support, please see <a href="http://ajaydsouza.com/support/">details here</a>.
 
 = Can I customize what is displayed? =
 
