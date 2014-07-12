@@ -41,13 +41,11 @@ global $tc_settings;
 $tc_settings = tc_read_options();
 
 
-define('TC_LOCAL_NAME', 'twittercounter');
-
 /**
  * Function to load translation files.
  */
 function tc_lang_init() {
-	load_plugin_textdomain( TC_LOCAL_NAME, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	load_plugin_textdomain( 'twittercounter', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 add_action('init', 'tc_lang_init');
 
@@ -66,7 +64,7 @@ function ald_tc( $style = false ) {
 	}
 
 	if ( '' == $tc_settings['username'] ) {
-		$str = __( 'Please visit WP-Admin &gt; Settings &gt; Twitter Counter and enter your Twitter username', TC_LOCAL_NAME );
+		$str = __( 'Please visit WP-Admin &gt; Settings &gt; Twitter Counter and enter your Twitter username', 'twittercounter' );
 	} else {
 		if ( 'custom' == $style ) {
 			$str = '<script type="text/javascript" language="JavaScript" src="http://twittercounter.com/embed/' . $tc_settings['username'] . '/' . $tc_settings['tc_hr_color'] . '/' . $tc_settings['tc_bg_color'] . '"></script>';
@@ -116,7 +114,7 @@ function ald_tr( $width='180', $nr_show='6', $hr_color='709CB2', $a_color='709CB
 	if ( empty( $bg_color ) ) $bg_color = $tc_settings['bg_color'];
 
 	if ( '' == $tc_settings['username'] ) {
-		$str = __( 'Please visit WP-Admin &gt; Settings &gt; Twitter Counter and enter your Twitter username.', TC_LOCAL_NAME );
+		$str = __( 'Please visit WP-Admin &gt; Settings &gt; Twitter Counter and enter your Twitter username.', 'twittercounter' );
 	} elseif ( '' != $tc_settings['twitter_id'] ) {
 		$str = "<script type=\"text/javascript\" id=\"tcws_" . $tc_settings['twitter_id'] . "\">(function(){function async_load(){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src='http://twittercounter.com/remote/?v=2&twitter_id=" . $tc_settings['twitter_id'] . "&users_id=" . $tc_settings['users_id'] . "&width=" . $width . "&nr_show=" . $nr_show . "&hr_color=" . $hr_color . "&a_color=" . $a_color . "&bg_color=" . $bg_color . "';x=document.getElementById('tcws_" . $tc_settings['twitter_id'] . "'); x.parentNode.insertBefore(s,x);}if(window.attachEvent){window.attachEvent('onload',async_load);}else{window.addEventListener('load',async_load,false);}})(); </script><noscript><a href=\"http://twittercounter.com/" . $tc_settings['username'] . "\">@" . $tc_settings['twitter_id'] . " on TwitterCounter.com</a></noscript><div id=\"tcw_" . $tc_settings['twitter_id'] . "\"></div>";
 	} else {
@@ -268,8 +266,8 @@ function twitterusersshow_api($username= 'ajaydsouza') {
 class WidgetTC extends WP_Widget {
 	function WidgetTC()
 	{
-		$widget_ops = array('classname' => 'widget_twittercounter', 'description' => __( 'Display Twitter Counter', TC_LOCAL_NAME ) );
-		$this->WP_Widget('widget_twittercounter',__( 'Twitter Counter', TC_LOCAL_NAME ), $widget_ops);
+		$widget_ops = array('classname' => 'widget_twittercounter', 'description' => __( 'Display Twitter Counter', 'twittercounter' ) );
+		$this->WP_Widget('widget_twittercounter',__( 'Twitter Counter', 'twittercounter' ), $widget_ops);
 	}
 	function form($instance) {
 		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
@@ -277,11 +275,11 @@ class WidgetTC extends WP_Widget {
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id('title'); ?>">
-		<?php _e('Title', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+		<?php _e('Title', 'twittercounter'); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</label>
 		</p>
 		<p>
-		<?php _e('Style', TC_LOCAL_NAME); ?>: <br />
+		<?php _e('Style', 'twittercounter'); ?>: <br />
 		<select class="widefat" id="<?php echo $this->get_field_id('style'); ?>" name="<?php echo $this->get_field_name('style'); ?>">
 		  <option value="avatar" <?php if ($style=='avatar') echo 'selected="selected"' ?>>avatar</option>
 		  <option value="bird" <?php if ($style=='bird') echo 'selected="selected"' ?>>bird</option>
@@ -330,8 +328,8 @@ class WidgetTC extends WP_Widget {
 class WidgetTW extends WP_Widget {
 	function WidgetTW()
 	{
-		$widget_ops = array('classname' => 'widget_twitterwidget', 'description' => __( 'Display Twitter Widget', TC_LOCAL_NAME ) );
-		$this->WP_Widget('widget_twitterwidget',__( 'Twitter Widget', TC_LOCAL_NAME ), $widget_ops);
+		$widget_ops = array('classname' => 'widget_twitterwidget', 'description' => __( 'Display Twitter Widget', 'twittercounter' ) );
+		$this->WP_Widget('widget_twitterwidget',__( 'Twitter Widget', 'twittercounter' ), $widget_ops);
 	}
 	function form($instance) {
 		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
@@ -343,38 +341,38 @@ class WidgetTW extends WP_Widget {
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id('title'); ?>">
-		<?php _e('Title', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+		<?php _e('Title', 'twittercounter'); ?>: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</label>
 		</p>
 
-		<p><?php _e('Leave the below options blank to use the default settings', TC_LOCAL_NAME); ?></p>
+		<p><?php _e('Leave the below options blank to use the default settings', 'twittercounter'); ?></p>
 		<p>
 		<label for="<?php echo $this->get_field_id('width'); ?>">
-		<?php _e('Width', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" type="text" value="<?php echo esc_attr($width); ?>" />
+		<?php _e('Width', 'twittercounter'); ?>: <input class="widefat" id="<?php echo $this->get_field_id('width'); ?>" name="<?php echo $this->get_field_name('width'); ?>" type="text" value="<?php echo esc_attr($width); ?>" />
 		</label>
 		</p>
 
 		<p>
 		<label for="<?php echo $this->get_field_id('nr_show'); ?>">
-		<?php _e('Number of rows', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('nr_show'); ?>" name="<?php echo $this->get_field_name('nr_show'); ?>" type="text" value="<?php echo esc_attr($nr_show); ?>" />
+		<?php _e('Number of rows', 'twittercounter'); ?>: <input class="widefat" id="<?php echo $this->get_field_id('nr_show'); ?>" name="<?php echo $this->get_field_name('nr_show'); ?>" type="text" value="<?php echo esc_attr($nr_show); ?>" />
 		</label>
 		</p>
 
 		<p>
 		<label for="<?php echo $this->get_field_id('hr_color'); ?>">
-		<?php _e('Header horizontal rules', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('hr_color'); ?>" name="<?php echo $this->get_field_name('hr_color'); ?>" type="text" value="<?php echo esc_attr($hr_color); ?>" />
+		<?php _e('Header horizontal rules', 'twittercounter'); ?>: <input class="widefat" id="<?php echo $this->get_field_id('hr_color'); ?>" name="<?php echo $this->get_field_name('hr_color'); ?>" type="text" value="<?php echo esc_attr($hr_color); ?>" />
 		</label>
 		</p>
 
 		<p>
 		<label for="<?php echo $this->get_field_id('a_color'); ?>">
-		<?php _e('Text and links', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('a_color'); ?>" name="<?php echo $this->get_field_name('a_color'); ?>" type="text" value="<?php echo esc_attr($a_color); ?>" />
+		<?php _e('Text and links', 'twittercounter'); ?>: <input class="widefat" id="<?php echo $this->get_field_id('a_color'); ?>" name="<?php echo $this->get_field_name('a_color'); ?>" type="text" value="<?php echo esc_attr($a_color); ?>" />
 		</label>
 		</p>
 
 		<p>
 		<label for="<?php echo $this->get_field_id('bg_color'); ?>">
-		<?php _e('Background Color', TC_LOCAL_NAME); ?>: <input class="widefat" id="<?php echo $this->get_field_id('bg_color'); ?>" name="<?php echo $this->get_field_name('bg_color'); ?>" type="text" value="<?php echo esc_attr($bg_color); ?>" />
+		<?php _e('Background Color', 'twittercounter'); ?>: <input class="widefat" id="<?php echo $this->get_field_id('bg_color'); ?>" name="<?php echo $this->get_field_name('bg_color'); ?>" type="text" value="<?php echo esc_attr($bg_color); ?>" />
 		</label>
 		</p>
 
@@ -457,7 +455,7 @@ if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 
 		return array_merge(
 			array(
-				'settings' => '<a href="' . admin_url( 'options-general.php?page=tc_options' ) . '">' . __( 'Settings', TC_LOCAL_NAME ) . '</a>'
+				'settings' => '<a href="' . admin_url( 'options-general.php?page=tc_options' ) . '">' . __( 'Settings', 'twittercounter' ) . '</a>'
 			),
 			$links
 		);
@@ -477,8 +475,8 @@ if ( is_admin() || strstr( $_SERVER['PHP_SELF'], 'wp-admin/' ) ) {
 
 		// create link
 		if ($file == $plugin) {
-			$links[] = '<a href="http://wordpress.org/support/plugin/twittercounter">' . __( 'Support', TC_LOCAL_NAME ) . '</a>';
-			$links[] = '<a href="http://ajaydsouza.com/donate/">' . __( 'Donate', TC_LOCAL_NAME ) . '</a>';
+			$links[] = '<a href="http://wordpress.org/support/plugin/twittercounter">' . __( 'Support', 'twittercounter' ) . '</a>';
+			$links[] = '<a href="http://ajaydsouza.com/donate/">' . __( 'Donate', 'twittercounter' ) . '</a>';
 		}
 		return $links;
 	}
