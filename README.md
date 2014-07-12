@@ -20,7 +20,7 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 ## Key features
 
-* Display TwitterCounter buttons. Multiple options are available
+* Display Twitter Counter buttons. Multiple options are available
 * Display Twitter Widget
 * Sidebar widgets allow you to add one or more buttons and widgets
 * Complete customization from within the comfort of WordPress Admin
