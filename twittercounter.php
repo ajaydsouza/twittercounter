@@ -90,10 +90,10 @@ function ald_tc( $style = false ) {
 /**
  * Function to echo Twitter Counter code. Also add an action called echo_tc so that it can be called using do_action( 'echo_tc' ).
  */
-function echo_tc_function() {
+function echo_twittercounter() {
 	echo ald_tc();
 }
-add_action( 'echo_tc', 'echo_tc_function' );
+add_action( 'echo_tc', 'echo_twittercounter' );
 
 
 /**
