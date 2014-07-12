@@ -35,6 +35,8 @@ Check ChangeLog for other changes
 
 = 1.6.3 =
 * Modified: Renamed ald-twittercounter.php to twittercounter.php
+* Modified: Changed *echo_twitter_remote* to *echo_twitter_widget*
+* Modified: Twitter Widget code has been updated to the latest version
 * Modified: Brand you admin interface
 * Modified: Complete code cleanup
 

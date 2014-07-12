@@ -99,29 +99,44 @@ add_action( 'echo_tc', 'echo_tc_function' );
 /**
  * Function to add Twitter Widget code.
  *
- * @param string $width (default: '180') Width of the widget
- * @param string $nr_show (default: '6') Number of rows to show
- * @param string $hr_color (default: '709CB2') Color of the horizontal line
- * @param string $a_color (default: '709CB2') Anchor color
- * @param string $bg_color (default: 'ffffff') Background color
+ * @param array $args Parameters in a query string format
+ * @return string Twitter Widget code
  */
-function ald_tr( $width='180', $nr_show='6', $hr_color='709CB2', $a_color='709CB2', $bg_color='ffffff' ) {
+function ald_tr( $args = array() ) {
 	global $tc_settings;
-	if ( empty( $width ) ) $style = $tc_settings['width'];
-	if ( empty( $nr_show ) ) $nr_show = $tc_settings['nr_show'];
-	if ( empty( $hr_color ) ) $hr_color = $tc_settings['hr_color'];
-	if ( empty( $a_color ) ) $a_color = $tc_settings['a_color'];
-	if ( empty( $bg_color ) ) $bg_color = $tc_settings['bg_color'];
 
-	if ( '' == $tc_settings['username'] ) {
-		$str = __( 'Please visit WP-Admin &gt; Settings &gt; Twitter Counter and enter your Twitter username.', 'twittercounter' );
-	} elseif ( '' != $tc_settings['twitter_id'] ) {
-		$str = "<script type=\"text/javascript\" id=\"tcws_" . $tc_settings['twitter_id'] . "\">(function(){function async_load(){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src='http://twittercounter.com/remote/?v=2&twitter_id=" . $tc_settings['twitter_id'] . "&users_id=" . $tc_settings['users_id'] . "&width=" . $width . "&nr_show=" . $nr_show . "&hr_color=" . $hr_color . "&a_color=" . $a_color . "&bg_color=" . $bg_color . "';x=document.getElementById('tcws_" . $tc_settings['twitter_id'] . "'); x.parentNode.insertBefore(s,x);}if(window.attachEvent){window.attachEvent('onload',async_load);}else{window.addEventListener('load',async_load,false);}})(); </script><noscript><a href=\"http://twittercounter.com/" . $tc_settings['username'] . "\">@" . $tc_settings['twitter_id'] . " on TwitterCounter.com</a></noscript><div id=\"tcw_" . $tc_settings['twitter_id'] . "\"></div>";
+	$defaults = array(
+		'username' => $tc_settings['username'],
+		'twitter_id' => $tc_settings['twitter_id'],
+		'users_id' => $tc_settings['users_id'],
+		'width' => $tc_settings['width'],
+		'nr_show' => $tc_settings['nr_show'],
+		'hr_color' => $tc_settings['hr_color'],
+		'a_color' => $tc_settings['a_color'],
+		'bg_color' => $tc_settings['bg_color'],
+	);
+
+	// Parse incomming $args into an array and merge it with $defaults
+	$args = wp_parse_args( $args, $defaults );
+
+	// OPTIONAL: Declare each item in $args as its own variable i.e. $type, $before.
+	extract( $args, EXTR_SKIP );
+
+	$str = '<div class="twittercounter_widget">';
+
+	if ( '' == $username ) {
+		$str .= __( 'Please visit WP-Admin &gt; Settings &gt; Twitter Counter and enter your Twitter username.', 'twittercounter' );
+	} elseif ( '' != $users_id ) {
+		$str .= "
+			<script type=\"text/javascript\" id=\"tcws_" . $users_id . "\">(function(){function async_load(){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src='http://twittercounter.com/remote/?v=2&twitter_id=" . $users_id . "&width=" . $width . "&nr_show=" . $nr_show . "&hr_color=" . $hr_color . "&a_color=" . $a_color . "&bg_color=" . $bg_color . "';x=document.getElementById('tcws_" . $users_id . "'); x.parentNode.insertBefore(s,x);}if(window.attachEvent){window.attachEvent('onload',async_load);}else{window.addEventListener('load',async_load,false);}})(); </script>
+				<noscript><a href=\"http://twittercounter.com/ajaydsouza\">Ajay D'Souza on Twitter Counter.com</a></noscript>
+			<div id=\"tcw_" . $users_id . "\"></div>
+		";
 	} else {
 		$str = '<script type="text/javascript" language="javascript" src="http://twittercounter.com/remote/?username_owner=';
-		$str .= $tc_settings['username'];
+		$str .= $username;
 		$str .= '&amp;users_id=';
-		$str .= $tc_settings['users_id'];
+		$str .= $users_id;
 		$str .= '&amp;width=';
 		$str .= $width;
 		$str .= '&amp;nr_show=';
@@ -135,16 +150,18 @@ function ald_tr( $width='180', $nr_show='6', $hr_color='709CB2', $a_color='709CB
 		$str .= '"></script>';
 	}
 
-	$str .= '<br /><small><strong style="color:#' . $hr_color . '">Powered by </strong> <a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/" style="font-weight:bold;color:#' . $a_color . '" rel="nofollow">Twitter Counter WordPress Plugin</a></small>';
+	$str .= '<br /><small>';
+	$str .= sprintf( __( '<strong style="%1$s">Get <a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/" style="%2$s" rel="nofollow">Twitter Counter WordPress Plugin</a></strong>', 'twittercounter' ), 'color:#' . $hr_color, 'color:#' . $a_color );
+	$str .= '</small></div>';
 
-	return apply_filter( 'ald_tr', $str );
+	return apply_filters( 'ald_tr', $str );
 }
 
 /**
  * Echo Twitter Widget code. Add an action called echo_twitter_widget so that it can be called using do_action( 'echo_twitter_widget' ).
  */
-function echo_tr_function() {
-	echo ald_tr();
+function echo_tr_function( $args ) {
+	echo ald_tr( $args );
 }
 add_action( 'echo_twitter_widget', 'echo_tr_function' );
 

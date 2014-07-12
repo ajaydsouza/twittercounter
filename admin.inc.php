@@ -107,14 +107,14 @@ function tc_options() {
 			</table>
 	      </div>
 	    </div>
-	    <div id="headeropdiv" class="postbox closed"><div class="handlediv" title="<?php _e( 'Click to toggle', 'twittercounter' ); ?>"><br /></div>
+	    <div id="headeropdiv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', 'twittercounter' ); ?>"><br /></div>
 	      <h3 class='hndle'><span><?php _e( 'Twitter Widget', 'twittercounter' ); ?></span></h3>
 	      <div class="inside">
 			<table class="form-table">
 				<tr style="vertical-align: top; background: #eee;"><th scope="col" style="text-align: center;"><?php _e( 'Preview', 'twittercounter' ); ?></th>
 				<th scope="col" style="text-align: center;"><?php _e( 'Select options for Twitter Widget', 'twittercounter' ); ?></th>
 				</tr>
-				<tr style="vertical-align: top;"><th scope="row"><?php do_action('echo_twitter_remote'); ?></th>
+				<tr style="vertical-align: top;"><th scope="row"><?php do_action('echo_twitter_widget'); ?></th>
 				<td><table>
 					<tr style="vertical-align: top; background:#ccc"><td colspan="2"><?php _e( 'If you have never used Twitter Counter before please visit <a href="http://twittercounter.com" target="_blank">http://twittercounter.com</a>, enter your Twitter username and hit <strong>Get Stats</strong>', 'twittercounter' ); ?></td>
 					</tr>
