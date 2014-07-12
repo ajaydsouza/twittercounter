@@ -28,11 +28,13 @@ Manually add where you would like to display the badge / remote or use the WordP
 == Upgrade Notice ==
 
 = 1.6.3 =
-* Fixed: Notices when WP_DEBUG is TRUE; Added: Latvian translation
+* Renamed main plugin file; New admin interface; code cleanup;
+Check ChangeLog for other changes
 
 == Changelog ==
 
 = 1.6.3 =
+* Modified: Renamed ald-twittercounter.php to twittercounter.php
 * Modified: Brand you admin interface
 * Modified: Complete code cleanup
 
@@ -109,7 +111,7 @@ If your question isn't listed here, please post a comment at the <a href="http:/
 
 = Can I customize what is displayed? =
 
-Several customization options are available via the Settings page in WordPress Admin. You can access this via <strong>Settings &raquo; TwitterCounter</strong>
+Several customization options are available via the Settings page in WordPress Admin. You can access this via <strong>Settings &raquo; Twitter Counter</strong>
 
 == Wishlist ==
 
