@@ -39,6 +39,7 @@ Check ChangeLog for other changes
 * Modified: Twitter Widget code has been updated to the latest version
 * Modified: Brand you admin interface
 * Modified: Complete code cleanup
+* Modified: Deleted obsolete buttons
 
 = 1.6.2 =
 * Fixed: Notices when WP_DEBUG is TRUE

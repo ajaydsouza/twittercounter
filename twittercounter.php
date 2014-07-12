@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Holds the filesystem directory path.
  */
-define('ALD_TC_DIR', dirname(__FILE__));
+define( 'ALD_TC_DIR', dirname( __FILE__ ) );
 
 /**
  * Set the global variables for twittercounter path and URL
