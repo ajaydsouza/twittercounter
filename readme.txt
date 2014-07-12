@@ -27,10 +27,14 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 == Upgrade Notice ==
 
-= 1.6.2 =
+= 1.6.3 =
 * Fixed: Notices when WP_DEBUG is TRUE; Added: Latvian translation
 
 == Changelog ==
+
+= 1.6.3 =
+* Modified: Brand you admin interface
+* Modified: Complete code cleanup
 
 = 1.6.2 =
 * Fixed: Notices when WP_DEBUG is TRUE
@@ -75,11 +79,11 @@ Manually add where you would like to display the badge / remote or use the WordP
 
 == Installation ==
 
-1. Download TwitterCounter. 
+1. Download TwitterCounter.
 
 2. Extract the contents of twittercounter.zip to wp-content/plugins/ folder. You should get a folder called twittercounter.
 
-3. Activate the Plugin in WP-Admin. 
+3. Activate the Plugin in WP-Admin.
 
 4. Goto Settings &raquo; TwitterCounter and enter your Twitter username. First time users will need to sign into <a href="http://twittercounter.com">TwitterCounter.com</a>
 
@@ -112,7 +116,7 @@ Several customization options are available via the Settings page in WordPress A
 Below are a few features that I plan on implementing in future versions of the plugin. However, there is no fixed time-frame for this and largely depends on how much time I can contribute to development.
 
 * Display statistics from TwitterCounter
-* Integration with Twitter 
+* Integration with Twitter
 
 If you would like a feature to be added, or if you already have the code for the feature, you can let us know by <a href="http://wordpress.org/support/plugin/twittercounter">posting in this forum</a>.
 

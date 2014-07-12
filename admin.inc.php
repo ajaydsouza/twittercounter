@@ -149,10 +149,10 @@ function tc_options() {
 	      <h3 class='hndle'><span><?php _e( 'Custom Styles', 'twittercounter' ); ?></span></h3>
 	      <div class="inside">
 			<table class="form-table">
-			<tr style="vertical-align: top; "><th scope="row" colspan="2"><?php _e( 'Custom CSS to add to header:','twittercounter'); ?></th>
-			</tr>
-			<tr style="vertical-align: top; "><td scope="row" colspan="2"><textarea name="custom_CSS" id="custom_CSS" rows="15" cols="80"><?php echo stripslashes($tc_settings['custom_CSS']); ?></textarea>
-			<br /><em><?php _e( 'Do not include <code>style</code> tags. Check out the <a href="http://wordpress.org/extend/plugins/twittercounter/faq/">FAQ</a> for available CSS classes to style.','twittercounter'); ?></em></td></tr>
+				<tr style="vertical-align: top; "><th scope="row" colspan="2"><?php _e( 'Custom CSS to add to header:','twittercounter'); ?></th>
+				</tr>
+				<tr style="vertical-align: top; "><td scope="row" colspan="2"><textarea name="custom_CSS" id="custom_CSS" rows="15" cols="80"><?php echo stripslashes($tc_settings['custom_CSS']); ?></textarea>
+				<br /><em><?php _e( 'Do not include <code>style</code> tags. Check out the <a href="http://wordpress.org/extend/plugins/twittercounter/faq/">FAQ</a> for available CSS classes to style.','twittercounter'); ?></em></td></tr>
 			</table>
 	      </div>
 	    </div>
