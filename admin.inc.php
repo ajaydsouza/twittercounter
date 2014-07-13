@@ -56,7 +56,7 @@ function tc_options() {
 	<div id="post-body-content">
 	  <div id="options-div">
 	  <form method="post" id="tc_options" name="tc_options" onsubmit="return checkForm()">
-	    <div id="thirdpartydiv" class="postbox closed"><div class="handlediv" title="<?php _e( 'Click to toggle', 'twittercounter' ); ?>"><br /></div>
+	    <div id="thirdpartydiv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', 'twittercounter' ); ?>"><br /></div>
 	      <h3 class='hndle'><span><?php _e( 'Twitter Buttons', 'twittercounter' ); ?></span></h3>
 	      <div class="inside">
 			<table class="form-table">
@@ -163,7 +163,7 @@ function tc_options() {
 			</table>
 	      </div>
 	    </div>
-	    <div id="contentopdiv" class="postbox closed"><div class="handlediv" title="<?php _e( 'Click to toggle', 'twittercounter' ); ?>"><br /></div>
+	    <div id="contentopdiv" class="postbox"><div class="handlediv" title="<?php _e( 'Click to toggle', 'twittercounter' ); ?>"><br /></div>
 	      <h3 class='hndle'><span><?php _e( 'Custom Styles', 'twittercounter' ); ?></span></h3>
 	      <div class="inside">
 			<table class="form-table">

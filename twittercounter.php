@@ -195,7 +195,7 @@ function tc_default_options() {
 		'hr_color' => '709CB2',		// Twitter Widget Horizontal rules
 		'bg_color' => 'ffffff',		// Twitter Widget Background Color
 		'nr_show' => '6',			// Twitter Widget Number of Rows
-		'width' => '180',			// Twitter Widget Width
+		'width' => '220',			// Twitter Widget Width
 		'tc_hr_color' => 'ffffff',	// Twitter Counter Hr Color
 		'tc_bg_color' => '111111',	// Twitter Counter Background Color
 		'custom_CSS' => '',			// Custom CSS
@@ -250,29 +250,6 @@ function twittercounter_api( $twitter_id= '3412651' ) {
 
 	return apply_filters( 'twittercounter_api', $twitter_info );
 }
-
-
-/**
- * This function gets user info via Twitter API.
- *
- * @param string $username (default: 'ajaydsouza') Twitter username
- */
-function twitterusersshow_api($username= 'ajaydsouza') {
-
-	$api_call = 'https://api.twitter.com/1/users/show.json?screen_name='.$username.'&include_entities=true';
-
-	$response = wp_remote_get( $api_call );
-	if ( ! is_wp_error( $response ) && isset( $response['body'] ) ) {
-		$body = $response['body'];
-		$twitter_info = json_decode( $body );
-	}
-
-	// Store information we plan to use as variables
-	$twitter_id = $twitter_info->id;
-
-	return apply_filters( 'twitterusersshow_api', $twitter_id );
-}
-
 
 
 /**
