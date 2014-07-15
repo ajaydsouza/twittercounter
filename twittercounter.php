@@ -6,7 +6,7 @@
  *
  * @wordpress-plugin
  * Plugin Name: Twitter Counter
- * Version:     1.6.2.1
+ * Version:     1.6.3
  * Plugin URI:  http://ajaydsouza.com/wordpress/plugins/twittercounter/
  * Description: Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
  * Author:      Ajay D'Souza

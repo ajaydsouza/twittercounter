@@ -1,5 +1,5 @@
 === Twitter Counter ===
-Tags: TwitterCounter, Twitter Counter, Twitter, Counter, Twitter Widget
+Tags: Twitter, TwitterCounter, Twitter Counter, Counter, Twitter Widget
 Contributors: Ajay
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
