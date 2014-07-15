@@ -99,10 +99,10 @@ Check ChangeLog for other changes
 
 == Screenshots ==
 
-1. Twitter Counter options in WP-Admin
+1. Twitter Counter Button options in WP-Admin
 2. Twitter Widget options in WP-Admin
 3. Custom Styles options in WP-Admin
-4. Twitter Counter Widget settings
+4. Twitter Counter Button Widget settings
 5. Twitter Widget widget settings
 
 
