@@ -90,8 +90,8 @@ function ald_tc( $style = false ) {
 /**
  * Function to echo Twitter Counter code. Also add an action called echo_tc so that it can be called using do_action( 'echo_tc' ).
  */
-function echo_twittercounter() {
-	echo ald_tc();
+function echo_twittercounter( $args ) {
+	echo ald_tc( $args );
 }
 add_action( 'echo_tc', 'echo_twittercounter' );
 
@@ -129,7 +129,7 @@ function ald_tr( $args = array() ) {
 	} elseif ( '' != $users_id ) {
 		$str .= "
 			<script type=\"text/javascript\" id=\"tcws_" . $users_id . "\">(function(){function async_load(){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src='http://twittercounter.com/remote/?v=2&twitter_id=" . $users_id . "&width=" . $width . "&nr_show=" . $nr_show . "&hr_color=" . $hr_color . "&a_color=" . $a_color . "&bg_color=" . $bg_color . "';x=document.getElementById('tcws_" . $users_id . "'); x.parentNode.insertBefore(s,x);}if(window.attachEvent){window.attachEvent('onload',async_load);}else{window.addEventListener('load',async_load,false);}})(); </script>
-				<noscript><a href=\"http://twittercounter.com/ajaydsouza\">Ajay D'Souza on Twitter Counter.com</a></noscript>
+				<noscript><a href=\"http://twittercounter.com/" . $username . "\">@" . $username . " on TwitterCounter.com</a></noscript>
 			<div id=\"tcw_" . $users_id . "\"></div>
 		";
 	} else {
