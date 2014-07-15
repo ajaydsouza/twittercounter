@@ -12,11 +12,11 @@ A powerful plugin that will allow you to add custom code or CSS to your header, 
 
 ## Description
 
-[Twitter Counter](http://ajaydsouza.com/wordpress/plugins/twittercounter/) allows you to integrate <a href="http://twittercounter.com">TwitterCounter.com</a> badges on your blog.
+[Twitter Counter](http://ajaydsouza.com/wordpress/plugins/twittercounter/) is the fastest and best way to add <a href="http://twittercounter.com">TwitterCounter.com</a> badges on your blog.
 
-Additionally, you can add the Twitter Widget to your blog, which shows which twitter users recently visited your blog or website.
+You can also add the Twitter Widget to your blog, which shows which twitter users recently visited your blog or website.
 
-Manually add where you would like to display the badge / remote or use the WordPress sidebar widgets instead.
+The plugin is very easy to use and comes with several options that allows you to easily configure the buttons or the Twitter widget.
 
 ## Key features
 

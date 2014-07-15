@@ -4,18 +4,18 @@ Contributors: Ajay
 Donate link: http://ajaydsouza.com/donate/
 Stable Tag: trunk
 Requires at least: 3.0
-Tested up to: 3.6
+Tested up to: 4.0
 License: GPLv2 or later
 
 Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter
 
 == Description ==
 
-<a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/">Twitter Counter plugin</a> allows you to integrate <a href="http://twittercounter.com">TwitterCounter.com</a> badges on your blog.
+<a href="http://ajaydsouza.com/wordpress/plugins/twittercounter/">Twitter Counter plugin</a> is the fastest and best way to add <a href="http://twittercounter.com">TwitterCounter.com</a> badges on your blog. All you need is to enter your Twitter username and TwitterCounter User ID and you're good to go.
 
-Additionally, you can add the Twitter Widget to your blog, which shows which twitter users recently visited your blog or website.
+You can also add the Twitter Widget to your blog, which shows which twitter users recently visited your blog or website.
 
-Manually add where you would like to display the badge / remote or use the WordPress sidebar widgets instead.
+The plugin is very easy to use and comes with several options that allows you to easily configure the buttons or the Twitter widget.
 
 = Features =
 * Display Twitter Counter buttons. Multiple options are available
