@@ -1,6 +1,6 @@
 <?php
 /**
- * Add to Feed lets you add a copyright notice and custom text or HTML to your WordPress feed.
+ * Integrate TwitterCounter.com badges on your blog to display the number of followers you have on Twitter.
  *
  * @package TwitterCounter
  *
